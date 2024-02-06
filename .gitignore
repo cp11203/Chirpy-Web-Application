@@ -1,0 +1,10 @@
+chirpy/target/chirpy-1.0-SNAPSHOT.jar
+chirpy/target/classes/chirpy/src/main/java/edu/georgetown/WebService.class
+chirpy/target/classes/chirpy/src/main/java/edu/georgetown/bll/user/UserService.class
+chirpy/target/classes/chirpy/src/main/java/edu/georgetown/bll/user/UserService$NewUserHandler.class
+chirpy/target/classes/chirpy/src/main/java/edu/georgetown/dao/User.class
+chirpy/target/classes/chirpy/src/main/java/edu/georgetown/dao/Users.class
+chirpy/target/maven-archiver/pom.properties
+chirpy/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+chirpy/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+chirpy/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst

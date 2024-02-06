@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Chirpy</title>
+    </head>
+    <body>
+        <h1>Cookies</h1>
+
+        <p>
+            This page demonstrates reading all of the cookies.  It really shouldn't be a part of a production system.
+        </p>
+
+        <h2>Cookie names</h2>
+        <ul>
+            <#list cookienames as name>
+                <li>${name}</li>
+            </#list>
+        </ul>
+
+        <h2>Cookie values</h2>
+        <ul>
+            <#list cookievalues as value>
+                <li>${value}</li>
+            </#list>
+        </ul>
+    </body>
+</html>

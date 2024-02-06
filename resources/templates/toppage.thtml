@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Welcome to Chirpy!</title>
+    </head>
+    <body>
+        <h1>Welcome to Chirpy!</h1>
+
+        <p>
+            Hello.  It is now ${date}.  Sadly, Chirpy doesn't do much currently.  But you'll fix that!  (Yay!)
+        </p>
+
+        <p>
+            Here's a list of random numbers:
+            <ul>
+                <#list randvector as randNum>
+                    <li>${randNum}</li>
+                </#list>
+            </ul>
+        </p>
+
+        <p>
+            You can also go to the <a href="/formtest/">form test</a> page or <a href="/listcookies/">this page</a> which lists the cookies.
+        </p>
+    </body>
+</html>
