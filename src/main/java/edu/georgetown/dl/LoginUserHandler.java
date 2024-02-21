@@ -41,7 +41,9 @@ public class LoginUserHandler implements HttpHandler {
 
             // NEED TO HANDLE ERRORS
         } 
-
+        //if (dataFromWebForm.containsKey("username")) {
+        //    displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
+        //}
         StringWriter sw = new StringWriter();
 
         // figure out how to advance to mainpage
