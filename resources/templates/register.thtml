@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Register for Chirpy</title>
+    </head>
+    <body>
+        <h1>Register for a Chirpy Account</h1>
+
+        <p>Welcome! Please enter your details below to register.</p>
+
+        <form method="post" action="/register/"> <!-- Updated form action to point to /register/ -->
+            <table border="1">
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" name="username" required /></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="password" required /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><input type="submit" value="Register" /></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

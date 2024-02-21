@@ -79,6 +79,18 @@ public class Chirpy {
             // you will need to add to the above list to add new functionality to the web
             // service.  Just make sure that the handler for "/" is listed last.
 
+            // what do we need to add 
+
+            // so what r these handlers dude 
+
+            // wants us to add this https://yourdomain/register/
+
+            //  and https://yourdomain/listusers/
+
+            // and  https://yourdomain/login/
+
+            // need to create all 3 hanlder files 
+
             server.setExecutor(null); // Use the default executor
 
             // this next line effectively starts the web service and waits for requests. The

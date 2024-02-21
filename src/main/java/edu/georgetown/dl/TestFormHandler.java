@@ -20,11 +20,14 @@ public class TestFormHandler implements HttpHandler {
         displayLogic = dl;
     }
 
+
+    // need to figure out how to actual persist user and pass 
+
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         logger.info("TestFormHandler called");
 
-        // dataModel will hold the data to be used in the template
+        // dataModel will hold the data to be used in the template 
         Map<String, Object> dataModel = new HashMap<String, Object>();
 
         Map<String, String> dataFromWebForm = displayLogic.parseResponse(exchange);
