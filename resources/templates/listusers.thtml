@@ -1,0 +1,19 @@
+<!-- VERY BOILERPLATE CODE FOR LIST USERS PAGE!!!!! -->
+<html>
+    <head>
+        <title>List of Users Page</title>
+    </head>
+    <body>
+        <h1>List of Users</h1>
+
+        <p>
+            Below is the list of all registered users. User details will be dynamically listed here in future developments.
+        </p>
+
+        <!-- add list of all users here -->
+        
+        <p>
+            Return to the <a href="/">main page</a>.
+        </p>
+    </body>
+</html>

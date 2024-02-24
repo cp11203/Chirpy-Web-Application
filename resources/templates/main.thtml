@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Main Page</title>
+    </head>
+    <body>
+        <h1>Main Page</h1>
+
+        <p>Welcome to the main page. Click below to see the list of users.</p>
+
+        <!-- Button for navigating to the list users page -->
+        <p>
+            <a href="/main/listusers/"><button>List Users</button></a>
+        </p>
+    </body>
+</html>

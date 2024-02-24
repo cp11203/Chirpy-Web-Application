@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Chirpy",
+            "request": "launch",
+            "mainClass": "edu.georgetown.Chirpy",
+            "projectName": "chirpy"
+        },
+        {
+            "type": "java",
+            "name": "Chirpy",
+            "request": "launch",
+            "mainClass": "edu.georgetown.Chirpy",
+            "projectName": "24sp-1-chirpy-cosc-2020-chirpy-group-4_3eff579e"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -14,7 +28,7 @@
             "type": "java",
             "name": "WebService",
             "request": "launch",
-            "mainClass": "edu.georgetown.WebService",
+            "mainClass": "edu.georgetown.WebService"
         }
     ]
 }
