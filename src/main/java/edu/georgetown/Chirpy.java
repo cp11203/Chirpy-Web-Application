@@ -105,7 +105,7 @@ public class Chirpy {
         Chirpy ws = new Chirpy();
 
         // let's start up the various business logic services
-        UserService userService = new UserService(ws.logger);
+        //UserService userService = new UserService(ws.logger);
 
         // finally, let's begin the web service so that we can start handling requests
         ws.startService();

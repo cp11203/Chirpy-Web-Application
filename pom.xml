@@ -20,6 +20,11 @@
             <artifactId>mongodb-driver-sync</artifactId>
             <version>4.11.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.32</version> <!-- Ensure you use the latest version -->
+        </dependency>
     </dependencies>
 
 </project>

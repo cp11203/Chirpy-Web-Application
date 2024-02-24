@@ -42,6 +42,9 @@ public class RegisterUserHandler implements HttpHandler {
 
             // NEED TO HANDLE ERRORS
         }
+        else {
+            logger.info("Form data missing username or password.");
+        }
 
         StringWriter sw = new StringWriter();
 
