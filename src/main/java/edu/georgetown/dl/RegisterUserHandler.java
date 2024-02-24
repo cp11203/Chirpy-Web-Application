@@ -12,7 +12,7 @@ import edu.georgetown.bll.user.UserService; // Make sure this import statement i
 
 public class RegisterUserHandler implements HttpHandler {
 
-    final String FORM_PAGE = "register.thtml";
+    final String REGISTER_PAGE = "register.thtml";
     private Logger logger;
     private DisplayLogic displayLogic;
     private UserService userService; // Add a reference to UserService
@@ -45,7 +45,7 @@ public class RegisterUserHandler implements HttpHandler {
 
         StringWriter sw = new StringWriter();
 
-        displayLogic.parseTemplate(FORM_PAGE, dataModel, sw);
+        displayLogic.parseTemplate(REGISTER_PAGE, dataModel, sw);
 
         exchange.getResponseHeaders().set("Content-Type", "text/html");
 

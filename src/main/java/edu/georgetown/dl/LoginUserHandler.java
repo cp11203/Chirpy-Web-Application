@@ -12,7 +12,7 @@ import edu.georgetown.bll.user.UserService;
 
 public class LoginUserHandler implements HttpHandler {
 
-    final String FORM_PAGE = "login.thtml";
+    final String LOGIN_PAGE = "login.thtml";
     private Logger logger;
     private DisplayLogic displayLogic;
     private UserService userService;
@@ -48,7 +48,7 @@ public class LoginUserHandler implements HttpHandler {
 
         // figure out how to advance to mainpage
 
-        displayLogic.parseTemplate(FORM_PAGE, dataModel, sw);
+        displayLogic.parseTemplate(LOGIN_PAGE, dataModel, sw);
 
         exchange.getResponseHeaders().set("Content-Type", "text/html");
 

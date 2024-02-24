@@ -18,7 +18,11 @@ import edu.georgetown.bll.user.UserService;
 import edu.georgetown.dl.DefaultPageHandler;
 import edu.georgetown.dl.DisplayLogic;
 import edu.georgetown.dl.ListCookiesHandler;
-import edu.georgetown.dl.TestFormHandler;
+import edu.georgetown.dl.RegisterUserHandler;
+import edu.georgetown.dl.LoginUserHandler;
+import edu.georgetown.dl.MainPageHandler;
+import edu.georgetown.dl.ListUsersHandler;
+
 
 public class Chirpy {
 
@@ -71,25 +75,17 @@ public class Chirpy {
             // initialize the web server
             HttpServer server = HttpServer.create(new InetSocketAddress("localhost", PORT), 0);
 
+            UserService userService = new UserService(logger);
+
             // each of these "contexts" below indicates a URL path that will be handled by
             // the service. The top-level path is "/", and that should be listed last.
-            server.createContext("/formtest/", new TestFormHandler(logger, displayLogic));
-            server.createContext("/listcookies/", new ListCookiesHandler(logger, displayLogic));
-            server.createContext("/", new DefaultPageHandler(logger, displayLogic));
-            // you will need to add to the above list to add new functionality to the web
-            // service.  Just make sure that the handler for "/" is listed last.
+            server.createContext("/register/", new RegisterUserHandler(logger, displayLogic, userService));
+            server.createContext("/login/", new LoginUserHandler(logger, displayLogic, userService));
+            server.createContext("/main/", new MainPageHandler(logger, displayLogic, userService));
+            server.createContext("/main/listusers/", new ListUsersHandler(logger, displayLogic, userService));
+            server.createContext("/main/listcookies/", new ListCookiesHandler(logger, displayLogic));
 
-            // what do we need to add 
-
-            // so what r these handlers dude 
-
-            // wants us to add this https://yourdomain/register/
-
-            //  and https://yourdomain/listusers/
-
-            // and  https://yourdomain/login/
-
-            // need to create all 3 hanlder files 
+            server.createContext("/", new DefaultPageHandler(logger, displayLogic));           
 
             server.setExecutor(null); // Use the default executor
 

@@ -22,13 +22,8 @@ public class DefaultPageHandler implements HttpHandler {
     private Logger logger;
     private DisplayLogic displayLogic;
 
-    /**
-     * the template that contains the top page for the Chirpy website. It's located
-     * in the resources/templates/ directory.
-     */ 
 
-
-    private final String DEFAULT_PAGE = "toppage.thtml";
+    private final String DEFAULT_PAGE = "default.thtml";
 
     public DefaultPageHandler(Logger log, DisplayLogic dl) {
         logger = log;
@@ -45,22 +40,6 @@ public class DefaultPageHandler implements HttpHandler {
         Map<String, Object> dataModel = new HashMap<String, Object>(); //   WHAT DOES THIS DO 
 
 
-        {
-            // I'm putting this in a code block because it's really just demo
-            // code. We're populating the dataModel with some example data
-            // that's not particularly useful
-
-            // the "date" variable in the template will be set to the current date
-            dataModel.put("date", new Date().toString());
-            // and randvector will be a vector of random doubles (just for illustration)
-            Vector<Double> v = new Vector<Double>();
-            for (int i = 0; i < 10; i++) {
-                v.add(Math.random());
-            }
-            dataModel.put("randvector", v);
-        }
-
-        // alight so this is a very impoirtant function call 
 
         // now we call the display method to parse the template and write the output
         displayLogic.parseTemplate(DEFAULT_PAGE, dataModel, sw);
