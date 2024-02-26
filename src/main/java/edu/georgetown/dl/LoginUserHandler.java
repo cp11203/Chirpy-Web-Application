@@ -41,9 +41,6 @@ public class LoginUserHandler implements HttpHandler {
 
             // NEED TO HANDLE ERRORS
         } 
-        //if (dataFromWebForm.containsKey("username")) {
-        //    displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
-        //}
         StringWriter sw = new StringWriter();
 
         // figure out how to advance to mainpage
@@ -53,6 +50,9 @@ public class LoginUserHandler implements HttpHandler {
         exchange.getResponseHeaders().set("Content-Type", "text/html");
 
         // would prob need to add cookies 
+        //if (dataFromWebForm.containsKey("username")) {
+        //    displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
+        //}
 
         exchange.sendResponseHeaders(200, sw.getBuffer().length());
         
