@@ -8,7 +8,7 @@
 
         <p>Please enter your login details below.</p>
 
-        <form method="post">
+        <form method="post" action="24sp-1-chirpy-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/LoginUserHandler.java">
             <table>
                 <tr>
                     <td>Username:</td>
