@@ -13,6 +13,8 @@ import edu.georgetown.bll.user.UserService;
 public class LoginUserHandler implements HttpHandler {
 
     final String LOGIN_PAGE = "login.thtml";
+    final String MAIN_PAGE = "main.thtml";
+    
     private Logger logger;
     private DisplayLogic displayLogic;
     private UserService userService;
@@ -37,13 +39,16 @@ public class LoginUserHandler implements HttpHandler {
             String password = dataFromWebForm.get("password");
 
             // Use the userService to log the login attempt
-            userService.loginUser(username, password);
-
-            // NEED TO HANDLE ERRORS
+            boolean loginSuccess = userService.loginUser(username, password);
+            
+            if (loginSuccess) {
+                exchange.getResponseHeaders().set("Location", MAIN_PAGE); //redir to main
+                exchange.sendResponseHeaders(302, -1);
+                return; // End the request after redirect
+            } else {
+                dataModel.put("error", "Invalid username or password");
+            }
         } 
-        //if (dataFromWebForm.containsKey("username")) {
-        //    displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
-        //}
         StringWriter sw = new StringWriter();
 
         // figure out how to advance to mainpage
@@ -53,6 +58,9 @@ public class LoginUserHandler implements HttpHandler {
         exchange.getResponseHeaders().set("Content-Type", "text/html");
 
         // would prob need to add cookies 
+        //if (dataFromWebForm.containsKey("username")) {
+        //    displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
+        //}
 
         exchange.sendResponseHeaders(200, sw.getBuffer().length());
         
@@ -61,5 +69,4 @@ public class LoginUserHandler implements HttpHandler {
         os.close();
     }
 }
-
 
