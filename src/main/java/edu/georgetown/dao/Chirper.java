@@ -47,5 +47,8 @@ public class Chirper implements Serializable {
     public Vector<Chirper> getFollowers() {
         return this.followers;
     }
+    public String toString(){
+        return username;
+    }
 
 }

@@ -8,9 +8,10 @@
 
         <p>
             Below is the list of all registered users. User details will be dynamically listed here in future developments.
+            <ul>
+                <li>${users}</li>
+            </ul>
         </p>
-
-        <!-- add list of all users here -->
         
         <p>
             Return to the <a href="/">main page</a>.
