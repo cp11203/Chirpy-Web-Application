@@ -23,7 +23,7 @@ public class DefaultPageHandler implements HttpHandler {
     private DisplayLogic displayLogic;
 
 
-    private final String DEFAULT_PAGE = "default.thtml";
+    private final String DEFAULT_PAGE = "main.thtml";
 
     public DefaultPageHandler(Logger log, DisplayLogic dl) {
         logger = log;

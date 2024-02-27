@@ -11,5 +11,6 @@
         <p>
             <a href="/main/listusers/"><button>List Users</button></a>
         </p>
+        <p> If you are a recurring user please <a href = "/login/"><button> LOGIN</button></a> else  <a href = "/register/"><button> REGISTER</button></a>
     </body>
 </html>

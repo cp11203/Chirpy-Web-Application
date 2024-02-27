@@ -20,7 +20,6 @@ import edu.georgetown.dl.DisplayLogic;
 import edu.georgetown.dl.ListCookiesHandler;
 import edu.georgetown.dl.RegisterUserHandler;
 import edu.georgetown.dl.LoginUserHandler;
-import edu.georgetown.dl.MainPageHandler;
 import edu.georgetown.dl.ListUsersHandler;
 
 
@@ -81,7 +80,6 @@ public class Chirpy {
             // the service. The top-level path is "/", and that should be listed last.
             server.createContext("/register/", new RegisterUserHandler(logger, displayLogic, userService));
             server.createContext("/login/", new LoginUserHandler(logger, displayLogic, userService));
-            server.createContext("/main/", new MainPageHandler(logger, displayLogic, userService));
             server.createContext("/main/listusers/", new ListUsersHandler(logger, displayLogic, userService));
             server.createContext("/main/listcookies/", new ListCookiesHandler(logger, displayLogic));
 
@@ -105,7 +103,7 @@ public class Chirpy {
         Chirpy ws = new Chirpy();
 
         // let's start up the various business logic services
-        //UserService userService = new UserService(ws.logger);
+        UserService userService = new UserService(ws.logger);
 
         // finally, let's begin the web service so that we can start handling requests
         ws.startService();

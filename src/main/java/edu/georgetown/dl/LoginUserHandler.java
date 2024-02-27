@@ -28,7 +28,7 @@ public class LoginUserHandler implements HttpHandler {
 
         logger.info("LoginUserHandler called");
 
-        Map<String, Object> dataModel = new HashMap<>();
+        Map<String, Object> dataModel = new HashMap<String,Object>();
         Map<String, String> dataFromWebForm = displayLogic.parseResponse(exchange);
 
 
