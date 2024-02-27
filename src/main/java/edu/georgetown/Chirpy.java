@@ -81,7 +81,7 @@ public class Chirpy {
             server.createContext("/register/", new RegisterUserHandler(logger, displayLogic, userService));
             server.createContext("/login/", new LoginUserHandler(logger, displayLogic, userService));
             server.createContext("/main/listusers/", new ListUsersHandler(logger, displayLogic, userService));
-            server.createContext("/main/listcookies/", new ListCookiesHandler(logger, displayLogic));
+            server.createContext("/main/showcookies/", new ListCookiesHandler(logger, displayLogic));
 
             server.createContext("/", new DefaultPageHandler(logger, displayLogic));           
 

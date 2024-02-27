@@ -38,11 +38,12 @@ public class RegisterUserHandler implements HttpHandler {
             if (password.equals(confirmPassword)) {
                 dataModel.put("username", username);
                 dataModel.put("password", password);
-
+                dataModel.put("Message", "Registration Success!");
                 userService.registerUser(username, password);
+                
             } else {
                 // Passwords don't match
-                dataModel.put("error", "Passwords do not match.");
+                dataModel.put("Message", "Registration Failed.");
             }
         } else {
             logger.info("Form data missing username, password, or confirm_password.");
