@@ -1,5 +1,4 @@
 package edu.georgetown.dl;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.StringWriter;
@@ -8,20 +7,19 @@ import java.util.Map;
 import java.util.logging.Logger;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import edu.georgetown.bll.user.UserService; // Make sure this import statement is correct based on your project structure
+import edu.georgetown.bll.user.UserService;
 
 public class RegisterUserHandler implements HttpHandler {
 
     final String REGISTER_PAGE = "register.thtml";
     private Logger logger;
     private DisplayLogic displayLogic;
-    private UserService userService; // Add a reference to UserService
+    private UserService userService;
 
-    // Update the constructor to accept UserService
     public RegisterUserHandler(Logger log, DisplayLogic dl, UserService us) {
         logger = log;
         displayLogic = dl;
-        userService = us; // Initialize userService
+        userService = us;
     }
 
     @Override
@@ -29,21 +27,26 @@ public class RegisterUserHandler implements HttpHandler {
 
         logger.info("RegisterUserHandler called");
 
-        Map<String, Object> dataModel = new HashMap<>();
+        Map<String, Object> dataModel = new HashMap<String,Object>();
         Map<String, String> dataFromWebForm = displayLogic.parseResponse(exchange);
 
-        // Check if the form contains both username and password
-        if (dataFromWebForm.containsKey("username") && dataFromWebForm.containsKey("password")) {
+        if (dataFromWebForm.containsKey("username") && dataFromWebForm.containsKey("password") && dataFromWebForm.containsKey("confirm_password")) {
             String username = dataFromWebForm.get("username");
             String password = dataFromWebForm.get("password");
+            String confirmPassword = dataFromWebForm.get("confirm_password");
 
-            // Call UserService to register the user
-            userService.registerUser(username, password);
-
-            // NEED TO HANDLE ERRORS
-        }
-        else {
-            logger.info("Form data missing username or password.");
+            if (password.equals(confirmPassword)) {
+                dataModel.put("username", username);
+                dataModel.put("password", password);
+                dataModel.put("Message", "Registration Success!");
+                userService.registerUser(username, password);
+                
+            } else {
+                // Passwords don't match
+                dataModel.put("Message", "Registration Failed.");
+            }
+        } else {
+            logger.info("Form data missing username, password, or confirm_password.");
         }
 
         StringWriter sw = new StringWriter();
@@ -53,10 +56,9 @@ public class RegisterUserHandler implements HttpHandler {
         exchange.getResponseHeaders().set("Content-Type", "text/html");
 
         exchange.sendResponseHeaders(200, sw.getBuffer().length());
-        
+
         OutputStream os = exchange.getResponseBody();
         os.write(sw.toString().getBytes());
         os.close();
     }
 }
-
