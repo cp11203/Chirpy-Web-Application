@@ -1,26 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <title>Register for Chirpy</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
 <html>
-    <head>
-        <title>Register for Chirpy</title>
-    </head>
-    <body>
-        <h1>Register for a Chirpy Account</h1>
+<head>
+    <title>Register for Chirpy</title>
+</head>
+<body>
+    <h1 class="mt-5">Register for a Chirpy Account</h1>
 
-        <p>Welcome! Please enter your details below to register.</p>
+    <p>Welcome! Please enter your details below to register.</p>
 
-        <form method="post" action="/register/"> <!-- Updated form action to point to /register/ -->
-            <table border="1">
-                <tr>
-                    <td>Username</td>
-                    <td><input type="text" name="username" required /></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="password" required /></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center;"><input type="submit" value="Register" /></td>
-                </tr>
-            </table>
-        </form>
-    </body>
+    <form id="registration_form" method="post" action="/register/">
+        <table border="1">
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="username" required /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" id="password" required /></td>
+            </tr>
+            <tr>
+                <td>Confirm Password</td>
+                <td><input type="password" name="confirm_password" id="confirm_password" required /></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><input type="submit" value="Register" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><span id="registration_message" style="color: green;"></span></td>
+            </tr>
+        </table>
+    </form>
+
+    // this Javascript code is generated from chat gpt 3.5 provided by OpenAI
+    <script>
+        // JavaScript to check if password and confirm password fields match
+        var password = document.getElementById("password");
+        var confirm_password = document.getElementById("confirm_password");
+        var registration_message = document.getElementById("registration_message");
+
+        function validatePassword() {
+            if (password.value != confirm_password.value) {
+                registration_message.textContent = "Passwords don't match";
+                confirm_password.setCustomValidity("Passwords don't match");
+            } else {
+                registration_message.textContent = "";
+                confirm_password.setCustomValidity('');
+            }
+        }
+
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;       
+    </script>
+</body>
 </html>

@@ -36,8 +36,6 @@ public class MainPageHandler implements HttpHandler {
         Map<String, Object> dataModel = new HashMap<>();
 
         
-        // can dp something like this to render to main.thtml page
-        //dataModel.put("message", "Welcome to the Main Page!");
 
         // Parse the main.thtml template with any required data and write to StringWriter
         displayLogic.parseTemplate(MAIN_PAGE, dataModel, sw);

@@ -28,16 +28,15 @@ public class ListUsersHandler implements HttpHandler {
         
         logger.info("ListUsersHandler called");
 
-        Map<String, Object> dataModel = new HashMap<>();
+        Map<String, Object> dataModel = new HashMap<String,Object>();
 
-      /* 
+      
         try {
             dataModel.put("users", userService.getUsers());
         } catch (Exception e) {
             logger.warning("Failed to fetch users: " + e.getMessage());
-            // Handle errors or set an error message in dataModel here
         }
-        */
+        
 
         StringWriter sw = new StringWriter();
         displayLogic.parseTemplate(LIST_USERS_PAGE, dataModel, sw);

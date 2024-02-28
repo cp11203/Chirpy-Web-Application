@@ -1,19 +1,24 @@
 # Chirpy design document
 ## This document is meant to outline the general strucutre of the chirpy application
 
+## Version Control Guidlines
+- our process for ensuuring we have a clean code history and minimize confusion in terms of changing code:
+    - each group member always codes in their own branch, and works on a specifc functionality
+    - to combine all members' work, we one-by-one, merge their branch with a "main-integration" branch
+    - we use this main-integration branch as a staging area to test the new code
+    - after all branches are merged to main-integraton and everything functions properly, we merge this main-integration branch with main
+
 
 ## Functionalities 
 
-- adding user, with a passowrd
+v1 of chirpy simply entials a user login and registration, and a page to list all users 
+a core part of our app is utilzing a hosted backend to store data, we chose MOngoDB to accomplish this, so all user data is stored and verified with our mongodb databaase
+
+in the future, users will also have the abilities of: 
 - posting a chirp
 - fetchign posts, and rendering a timeline
 - searching for chirps from hashatag
 - searching for posts via username
-
--  WHAT WE NEED TO DO FOR THIS ASSIGNMENT
-    -  create register - which is sign in form 
-    - create list users 
-    - create login 
 
 
 ## Chirpy.java file
@@ -24,67 +29,54 @@
     - creates a UserService instance
     - creates the web service using Chirpy startService function
         - server.CreateContext calls display pages for specific url paths
-- hosting notes
-    - https://organic-space-guacamole-7jrvxxrq9vj2xg69-8080.app.github.dev/
-    - https://organic-space-guacamole-7jrvxxrq9vj2xg69-8080.app.github.dev/formtest/
-    - aight so these r the same brotha 
 
 
 ## Data Object Classes
-### purpose of these classes is 
 
-NEED TO LOOK AT THIS - look at both of these before u go 
+- right now we just have a chirper object, which holds user information - just their username and password right now
+- in future we will add objects to hold post information
 
 
 ## Business Logic Classes
-### purpose of these classes is 
 
-NEED TO FIGURE THIS OUT
+- right now we just have a UserService, which allows users to login and register, and also has fucntion to list all users
 
- idk if we need seprate classes for the other services, as i have now, or they can just be functions of main user service
- - tbd 
+UserService class functions
+- registerUser - takes in a username and password, and creates a chriper object stored as a document in our mongodb collection
+- loginUser- takes in a username and passowrd strings, and checks these against mongodb collection, if valid, returns true, else, returns false
+- getUsers - function that returns all user documents stored in mongodb, as a vector of Chirper objects
 
-right now thinking UserService and ChirpService, maybe also search we will see 
-
-- **UserService** 
-- **UserRegistrationService** 
-- **UserAuthenticationService** 
+in future will add:
 - **ChirpService** 
 - **SearchService** 
 
 
-## Display Logic Classes
-### purpose of these classes is 
+## Display Logic Classes / FrontEnd templates
+# The handler functions that are respjsnbile for passing data to htmtl to render on screen
 
-how do we persist data and send this to dataModel
-
-so you add key value paids to dataModel hashmap, pass this to displaylogic parser, and then access these variable values by doing ${key} in the template .thtml code
-
-- in resources/templates , we have .thmtl files, 
-    - toppage.thmtl - chnage this to be landingpage - and then user can either register or login
-    - formtest.thmtl - will get rid of this, use for refernece now
+- in resources/templates , we have .thmtl files, use bootstrap to make them look pretty, need to work on this in future though
+    - default.thmtl - this is the page rendered when just url is entered
     - showcookies.thmtl
     - listusers.thtml - need to add this 
     - login.thtml
-    - mainpage.thtml -- need to add this 
+    - register.thtml
+    - mainpage.thtml -- this is the main page of the application, shown only after succesful user login or registration
 - handlers - implemenation of HTTPHandler interface, to handle http requests to different url paths
     - DefaultPageHandler 
     - ListCookiesHandler
-    - TestFormHandler - will delete this
     -  ListUsersHandler
     -  LoginHandler
     -  RegisterUserHandler
+    - MainPageHandler
 - DisplayLogic.java file - we do not need to change this, but it gives us code to render dynamic html pages
 
 
 ## Storage
 
-- we will incoporate some sort of object oriented database backend in order to persist data - most likely mongo db
+- we are using a hosted mongodb atlas instance to store data
+- right now we just store user (chirper) objects in the databse, and in the future we will add posts
 
-## Cookies
 
-- what of cookies ????
 
-## Business Logic Classes
 
 

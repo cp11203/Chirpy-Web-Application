@@ -1,15 +1,18 @@
 <html>
-    <head>
-        <title>Main Page</title>
-    </head>
-    <body>
-        <h1>Main Page</h1>
+<head>
+    <title>Main Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1 class="mt-5">Chirp Chirp! Welcome to Chirpy!</h1>
 
-        <p>Welcome to the main page. Click below to see the list of users.</p>
+    <p>Welcome to the main page. Click below to see the list of users.</p>
 
-        <!-- Button for navigating to the list users page -->
-        <p>
-            <a href="/main/listusers/"><button>List Users</button></a>
-        </p>
-    </body>
+    <!-- Button for navigating to the list users page -->
+    <p>
+        <a href="/main/listusers/"><button>List Users</button></a>
+        <a href="/main/showcookies/"><button>Cookies</button></a>
+    </p>
+</body>
 </html>
