@@ -36,9 +36,6 @@ public class RegisterUserHandler implements HttpHandler {
             String confirmPassword = dataFromWebForm.get("confirm_password");
 
             if (password.equals(confirmPassword)) {
-                /*dataModel.put("username", username);
-                dataModel.put("password", password);
-                dataModel.put("Message", "Registration Success!");*/
                 userService.registerUser(username, password);
 
                 exchange.getResponseHeaders().set("Location", "/main/");

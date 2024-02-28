@@ -22,7 +22,7 @@ public class LoginUserHandler implements HttpHandler {
     public LoginUserHandler(Logger log, DisplayLogic dl, UserService us) {
         logger = log;
         displayLogic = dl;
-        userService = us; // Initialize userService
+        userService = us;
     }
 
     @Override
@@ -38,14 +38,14 @@ public class LoginUserHandler implements HttpHandler {
             String username = dataFromWebForm.get("username");
             String password = dataFromWebForm.get("password");
 
-            // Use the userService to log the login attempt
+
             boolean loginSuccess = userService.loginUser(username, password);
             
             if (loginSuccess) {
-                exchange.getResponseHeaders().set("Location", "/main/"); //redir to main
+                exchange.getResponseHeaders().set("Location", "/main/");
                 exchange.sendResponseHeaders(302, -1);
                 exchange.getResponseBody().close();
-                return; // End the request after redirect
+                return;
             } else {
                 dataModel.put("error", "Invalid username or password");
             }

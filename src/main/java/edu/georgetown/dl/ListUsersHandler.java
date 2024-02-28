@@ -35,7 +35,6 @@ public class ListUsersHandler implements HttpHandler {
             dataModel.put("users", userService.getUsers());
         } catch (Exception e) {
             logger.warning("Failed to fetch users: " + e.getMessage());
-            // Handle errors or set an error message in dataModel here
         }
         
 
