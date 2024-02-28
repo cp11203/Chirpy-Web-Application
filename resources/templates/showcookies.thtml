@@ -12,7 +12,7 @@
         <h2>Cookie names</h2>
         <ul>
             <#list cookienames as name>
-                <li>${name}</li>
+                <li>${username}</li>
             </#list>
         </ul>
 

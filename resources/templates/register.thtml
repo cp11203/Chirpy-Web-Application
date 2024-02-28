@@ -36,6 +36,7 @@
         </table>
     </form>
 
+    // this Javascript code is geenrated from chat gpt 3.5 provided by OpenAI
     <script>
         // JavaScript to check if password and confirm password fields match
         var password = document.getElementById("password");
