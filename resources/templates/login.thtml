@@ -7,7 +7,7 @@
     <div class="container">
         <h1 class="mt-5">Login to your Chirpy account</h1>
         <p>Please enter your login details below.</p>
-        <form method="post" action="24sp-1-chirpy-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/LoginUserHandler.java">
+        <form method="post" action="/login/">
             <div class="form-group row">
                 <label for="username" class="col-sm-2 col-form-label">Username:</label>
                 <div class="col-sm-10">
