@@ -4,10 +4,7 @@
         <title>Welcome to Chirpy!</title>
     </head>
     <body>
-        <p>
-            <a href="/login/"><button>Login</button></a>
-            <a href="/register/"><button>Register</button></a>
-        </p>
+       <p>If you are a recurring user, please <a href="/login/"><button>LOGIN</button></a> else <a href="/register/"><button>REGISTER</button></a></p>
 
     </body>
 </html>

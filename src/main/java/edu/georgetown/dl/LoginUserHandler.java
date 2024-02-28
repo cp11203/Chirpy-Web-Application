@@ -42,16 +42,15 @@ public class LoginUserHandler implements HttpHandler {
             boolean loginSuccess = userService.loginUser(username, password);
             
             if (loginSuccess) {
-                exchange.getResponseHeaders().set("Location", MAIN_PAGE); //redir to main
+                exchange.getResponseHeaders().set("Location", "/main/"); //redir to main
                 exchange.sendResponseHeaders(302, -1);
+                exchange.getResponseBody().close();
                 return; // End the request after redirect
             } else {
                 dataModel.put("error", "Invalid username or password");
             }
         } 
         StringWriter sw = new StringWriter();
-
-        // figure out how to advance to mainpage
 
         displayLogic.parseTemplate(LOGIN_PAGE, dataModel, sw);
 

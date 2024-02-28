@@ -21,6 +21,7 @@ import edu.georgetown.dl.ListCookiesHandler;
 import edu.georgetown.dl.RegisterUserHandler;
 import edu.georgetown.dl.LoginUserHandler;
 import edu.georgetown.dl.ListUsersHandler;
+import edu.georgetown.dl.MainPageHandler;
 
 
 public class Chirpy {
@@ -80,6 +81,7 @@ public class Chirpy {
             // the service. The top-level path is "/", and that should be listed last.
             server.createContext("/register/", new RegisterUserHandler(logger, displayLogic, userService));
             server.createContext("/login/", new LoginUserHandler(logger, displayLogic, userService));
+            server.createContext("/main/", new MainPageHandler(logger, displayLogic, userService));
             server.createContext("/main/listusers/", new ListUsersHandler(logger, displayLogic, userService));
             server.createContext("/main/showcookies/", new ListCookiesHandler(logger, displayLogic));
 
