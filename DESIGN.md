@@ -54,6 +54,10 @@ in future will add:
 ## Display Logic Classes / FrontEnd templates
 # The handler functions that are respjsnbile for passing data to htmtl to render on screen
 
+
+/// need to add i think for now - feed, post a post, and search 
+
+
 - in resources/templates , we have .thmtl files, use bootstrap to make them look pretty, need to work on this in future though
     - default.thmtl - this is the page rendered when just url is entered
     - showcookies.thmtl

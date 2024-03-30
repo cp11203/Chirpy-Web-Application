@@ -77,6 +77,8 @@ public class Chirpy {
 
             UserService userService = new UserService(logger);
 
+            // prob add posting service, and maybe feed and search shit
+
             // each of these "contexts" below indicates a URL path that will be handled by
             // the service. The top-level path is "/", and that should be listed last.
             server.createContext("/register/", new RegisterUserHandler(logger, displayLogic, userService));
@@ -105,7 +107,7 @@ public class Chirpy {
         Chirpy ws = new Chirpy();
 
         // let's start up the various business logic services
-        UserService userService = new UserService(ws.logger);
+        UserService userService = new UserService(ws.logger); // do u init this twice ????
 
         // finally, let's begin the web service so that we can start handling requests
         ws.startService();
