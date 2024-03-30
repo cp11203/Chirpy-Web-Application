@@ -1,27 +1,30 @@
-<!-- VERY BOILERPLATE CODE FOR LOGIN PAGE it just will print user name and pass when submitted, code in handler -->
-<html>
-    <head>
-        <title>Login to Chirpy</title>
-    </head>
-    <body>
-        <h1>Login to your Chirpy account</h1>
-
+<head>
+    <title>Login to Chirpy</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Login to your Chirpy account</h1>
         <p>Please enter your login details below.</p>
-
-        <form method="post">
-            <table>
-                <tr>
-                    <td>Username:</td>
-                    <td><input type="text" name="username" /></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="password" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center;"><input type="submit" value="Login" /></td>
-                </tr>
-            </table>
+        <form method="post" action="/login/">
+            <div class="form-group row">
+                <label for="username" class="col-sm-2 col-form-label">Username:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-sm-2 col-form-label">Password:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </div>
         </form>
-    </body>
-</html>
+    </div>
+</body>

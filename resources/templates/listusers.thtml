@@ -1,15 +1,14 @@
-<!-- VERY BOILERPLATE CODE FOR LIST USERS PAGE!!!!! -->
 <html>
     <head>
         <title>List of Users Page</title>
     </head>
     <body>
-        <h1>List of Users</h1>
+        <h1>List of Usernames registered on Chirpy</h1>
 
         <p>
             <ul>
                 <#list users as user>
-                    <li>${user}</li>
+                    <li>${user.username}</li>
                 </#list>
             </ul>
         </p>

@@ -34,7 +34,6 @@ public class UserService {
         }
     }
 
-    // BOILER PLATE FUNCTIONS THAT WE NEED TO IMPLEMENT
 
     public void registerUser(String username, String password) {
         logger.info("Attempting to register user: " + username);
@@ -71,7 +70,7 @@ public class UserService {
         }
     }
 
-    // cite chatgpt for this one
+    /// this function is generated from chat gpt 3.5 provided by OpenAI
     public Vector<Chirper> getUsers() {
         Vector<Chirper> users = new Vector<>();
         try (MongoCursor<Document> cursor = usersCollection.find().iterator()) {
