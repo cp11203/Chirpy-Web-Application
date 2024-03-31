@@ -41,6 +41,7 @@ public class FeedHandler implements HttpHandler {
 
         // FOR SOME REASON I CANNOT FIGURE OUT WHY PUTTING VECTOR OF POSTS IN DM DOES NOT RENDER IN FEED HTML
         try {
+            // like this 
             postsVector.addAll(postService.fetchPosts()); // Ensure fetchPosts() returns a Collection of Post objects
 
             int vectorSize = postsVector.size();

@@ -66,12 +66,6 @@ public class PostService {
             logger.severe("Failed to fetch posts: " + e.getMessage());
         }
 
-        for (Post post : posts) {
-            logger.info("Posted by: " + post.username);
-            logger.info("Content: " + post.content);
-            logger.info("Hashtag: " + post.hashtag);
-            logger.info("------------------------");
-        }
 
         return posts;
     }
