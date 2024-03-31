@@ -18,6 +18,7 @@ import edu.georgetown.dao.*;
 public class UserService {
 
     private static Logger logger;
+
     private MongoCollection<Document> usersCollection;
 
     public UserService(Logger log) {
@@ -71,15 +72,15 @@ public class UserService {
     }
 
     /// this function is generated from chat gpt 3.5 provided by OpenAI
-    public Vector<Chirper> getUsers() {
-        Vector<Chirper> users = new Vector<>();
+    public Vector<User> getUsers() {
+        Vector<User> users = new Vector<>();
         try (MongoCursor<Document> cursor = usersCollection.find().iterator()) {
             while (cursor.hasNext()) {
                 Document doc = cursor.next();
                 String username = doc.getString("username");
                 String password = doc.getString("password");
-                Chirper chirper = new Chirper(username, password);
-                users.add(chirper);
+                User user = new User(username, password);
+                users.add(user);
             }
         } catch (Exception e) {
             logger.severe("Failed to fetch users: " + e.getMessage());

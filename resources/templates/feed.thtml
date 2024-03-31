@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>feed/title>
+    </head>
+    <body>
+        <h1>List of posts</h1>
+
+        <p>
+            <ul>
+                <#list posts as post>
+                    <li>${post.content}</li>
+                </#list>
+            </ul>
+        </p>
+            Return to the <a href="/">main page</a>.
+        </p>
+    </body>
+</html>
+

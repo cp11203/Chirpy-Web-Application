@@ -11,6 +11,8 @@
 
     <!-- Button for navigating to the list users page -->
     <p>
+        <a href="/main/feed/"><button>Feed</button></a>
+        <a href="/main/post/"><button>Post</button></a>
         <a href="/main/listusers/"><button>List Users</button></a>
         <a href="/main/showcookies/"><button>Cookies</button></a>
     </p>

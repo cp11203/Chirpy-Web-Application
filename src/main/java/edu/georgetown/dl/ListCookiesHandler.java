@@ -22,6 +22,7 @@ public class ListCookiesHandler implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+
         logger.info("ListCookiesHandler called");
 
         // grab all of the cookies that have been set
@@ -33,8 +34,7 @@ public class ListCookiesHandler implements HttpHandler {
         // we don't actually do anything with this, and this line could be removed
         //Map<String, String> dataFromWebForm = displayLogic.parseResponse(exchange);
 
-        dataModel.put("cookienames", cookies.keySet());
-        dataModel.put("cookievalues", cookies.values());
+        dataModel.put("cookies", cookies);
 
         // sw will hold the output of parsing the template
         StringWriter sw = new StringWriter();

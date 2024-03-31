@@ -10,11 +10,11 @@
         </p>
 
         <h2>Cookie names</h2>
-        <ul>
-            <#list cookienames as name>
-                <li>${username}</li>
-            </#list>
-        </ul>
+       <ul>
+        <#list cookies?keys as cookieName>
+            <li>${cookieName}: ${cookies[cookieName]}</li>
+        </#list>
+    </ul>
 
         <h2>Cookie values</h2>
         <ul>
