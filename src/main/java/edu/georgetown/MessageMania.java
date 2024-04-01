@@ -1,5 +1,5 @@
 /**
- * Chirpy -- a really basic social networking site
+ * 
  * 
  * Micah Sherr <msherr@cs.georgetown.edu>
  */
@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import com.sun.net.httpserver.HttpServer;
 import edu.georgetown.bll.user.UserService;
+import edu.georgetown.bll.user.PostService;
 import edu.georgetown.dl.DefaultPageHandler;
 import edu.georgetown.dl.DisplayLogic;
 import edu.georgetown.dl.ListCookiesHandler;
@@ -22,26 +23,19 @@ import edu.georgetown.dl.RegisterUserHandler;
 import edu.georgetown.dl.LoginUserHandler;
 import edu.georgetown.dl.ListUsersHandler;
 import edu.georgetown.dl.MainPageHandler;
+import edu.georgetown.dl.PostHandler;
+import edu.georgetown.dl.FeedHandler;
 
 
-public class Chirpy {
+public class MessageMania {
 
-    final static int PORT = 8080;
+    final static int PORT = 1025;
 
     private Logger logger;
     private DisplayLogic displayLogic;
 
-    public Chirpy() {
-        /* 
-         * A Logger is a thing that records "log" messages.  This is better
-         * than using System.out.println() because you can control which
-         * messages are logged.  For example, you can log only "warning"
-         * messages, or you can log all messages.
-         * 
-         * We'll create one logger, call it `logger`, and then pass this
-         * logger to our classes.  This way, all of our classes will log
-         * to the same place.
-         */
+    public MessageMania() {
+
         logger = Logger.getLogger("MyLogger");
         try {
             FileHandler fileHandler = new FileHandler("/tmp/log.txt");
@@ -63,7 +57,7 @@ public class Chirpy {
             System.exit(1);
         }
 
-        logger.info("Starting chirpy web service");
+        logger.info("Starting web service");
 
     }
 
@@ -75,7 +69,12 @@ public class Chirpy {
             // initialize the web server
             HttpServer server = HttpServer.create(new InetSocketAddress("localhost", PORT), 0);
 
+            // initalzie the user service
             UserService userService = new UserService(logger);
+
+            PostService postService = new PostService(logger);
+
+            // prob add posting service, and maybe feed and search shit
 
             // each of these "contexts" below indicates a URL path that will be handled by
             // the service. The top-level path is "/", and that should be listed last.
@@ -84,6 +83,13 @@ public class Chirpy {
             server.createContext("/main/", new MainPageHandler(logger, displayLogic, userService));
             server.createContext("/main/listusers/", new ListUsersHandler(logger, displayLogic, userService));
             server.createContext("/main/showcookies/", new ListCookiesHandler(logger, displayLogic));
+            server.createContext("/main/post/", new PostHandler(logger, displayLogic, userService, postService));
+            server.createContext("/main/feed/", new FeedHandler(logger, displayLogic, userService, postService));
+
+            // what other ones do we need
+            // so have main show buttons for feed and search 
+            // feed 
+            // search
 
             server.createContext("/", new DefaultPageHandler(logger, displayLogic));           
 
@@ -102,10 +108,9 @@ public class Chirpy {
 
     public static void main(String[] args) {
 
-        Chirpy ws = new Chirpy();
+        MessageMania ws = new MessageMania();
 
-        // let's start up the various business logic services
-        UserService userService = new UserService(ws.logger);
+        //UserService userService = new UserService(ws.logger); // do u init this twice ????
 
         // finally, let's begin the web service so that we can start handling requests
         ws.startService();

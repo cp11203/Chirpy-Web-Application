@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import edu.georgetown.bll.user.UserService; // Adjust if necessary based on your actual package structure
+import edu.georgetown.bll.user.UserService; 
 
 public class ListUsersHandler implements HttpHandler {
 

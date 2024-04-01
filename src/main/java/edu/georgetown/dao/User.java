@@ -9,22 +9,23 @@ package edu.georgetown.dao;
 import java.io.Serializable;
 import java.util.Vector;
 
-public class Chirper implements Serializable {
+public class User implements Serializable {
     
     private String username;
     private String password;
+
     /** if true, the user's chirps are public */
-    private boolean publicChirps;   
+    private boolean is_public;   
 
     /** list of this chirper's followers */
-    private Vector<Chirper> followers;
+    private Vector<User> followers;
 
 
-    public Chirper( String username, String password ) {
+    public User( String username, String password ) {
         this.username = username;
         this.password = password;
-        this.publicChirps = true;
-        this.followers = new Vector<Chirper>();        
+        this.is_public = true;
+        this.followers = new Vector<User>();        
     }
 
     /**
@@ -39,12 +40,13 @@ public class Chirper implements Serializable {
         return this.password.equals( password );
     }
 
-    public void addFollower( Chirper follower ) {
+    // ARE WE DOING FOLLOWERS
+    public void addFollower( User follower ) {
         // doesn't do anything.  you should probably change this
         return;
     }
 
-    public Vector<Chirper> getFollowers() {
+    public Vector<User> getFollowers() {
         return this.followers;
     }
 

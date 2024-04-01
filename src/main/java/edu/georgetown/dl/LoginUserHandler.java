@@ -31,12 +31,16 @@ public class LoginUserHandler implements HttpHandler {
         logger.info("LoginUserHandler called");
 
         Map<String, Object> dataModel = new HashMap<String,Object>();
-        Map<String, String> dataFromWebForm = displayLogic.parseResponse(exchange);
+        
+        Map<String, String> dataFromWebForm = displayLogic.parseResponse(exchange); // go back over how this shit works 
 
 
         if (dataFromWebForm.containsKey("username") && dataFromWebForm.containsKey("password")) {
             String username = dataFromWebForm.get("username");
             String password = dataFromWebForm.get("password");
+
+            logger.info("ughhhh Setting cookie for username: " + dataFromWebForm.get("username"));
+            displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
 
 
             boolean loginSuccess = userService.loginUser(username, password);
@@ -57,6 +61,7 @@ public class LoginUserHandler implements HttpHandler {
         exchange.getResponseHeaders().set("Content-Type", "text/html");
 
         if (dataFromWebForm.containsKey("username")) {
+            logger.info("Setting cookie for username: " + dataFromWebForm.get("username"));
             displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
         }
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Feed Page</title>
+</head>
+<body>
+    <h1>Posts Feed</h1>
+
+    <#-- Check if posts exist -->
+    <#if posts?size gt 0>
+        <ul>
+        <#-- Iterate over each post in the posts vector -->
+            <#list posts as post>
+                <li>
+                    <strong>Username:</strong> ${post.username} <br>
+                    <strong>Content:</strong> ${post.content} <br>
+                    <strong>Hashtag:</strong> ${post.hashtag}
+                </li>
+            </#list>
+        </ul>
+
+    <#else>
+        <p>No posts available.</p>
+    </#if>
+    
+    <p>
+        Return to the <a href="/">main page</a>.
+    </p>
+</body>
+</html>
+
+
