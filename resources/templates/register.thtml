@@ -1,42 +1,87 @@
+
 <!DOCTYPE html>
+<!-- This code has been written by chatGPT -->
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register for Chirpy</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-<html>
-<head>
-    <title>Register for Chirpy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f8fa;
+            color: #1a1a1b;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1da1f2;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        form {
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #1da1f2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0f81c7;
+        }
+        .message {
+            color: green;
+        }
+    </style>
 </head>
 <body>
-    <h1 class="mt-5">Register for a Chirpy Account</h1>
+    <div class="container">
+        <h1>Register for a Chirpy Account</h1>
 
-    <p>Welcome! Please enter your details below to register.</p>
+        <p>Welcome! Please enter your details below to register.</p>
 
-    <form id="registration_form" method="post" action="/register/">
-        <table border="1">
-            <tr>
-                <td>Username</td>
-                <td><input type="text" name="username" required /></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="password" id="password" required /></td>
-            </tr>
-            <tr>
-                <td>Confirm Password</td>
-                <td><input type="password" name="confirm_password" id="confirm_password" required /></td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center;"><input type="submit" value="Register" /></td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center;"><span id="registration_message" style="color: green;"></span></td>
-            </tr>
-        </table>
-    </form>
+        <form id="registration_form" method="post" action="/register/">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+            <input type="submit" value="Register">
+            <div class="message" id="registration_message"></div>
+        </form>
+         <p>
+             <a href="/default/">Back</a>.
+        </p>
+    </div>
 
-    <!-- this Javascript code is generated from chat gpt 3.5 provided by OpenAI -->
     <script>
         // JavaScript to check if password and confirm password fields match
         var password = document.getElementById("password");

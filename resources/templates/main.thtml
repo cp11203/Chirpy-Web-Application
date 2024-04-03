@@ -1,20 +1,65 @@
-<html>
+<!DOCTYPE html>
+<!-- This code has been written by chatGPT -->
+<html lang="en">
 <head>
-    <title>Main Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page - Chirpy</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+        .btn-logout {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #dc3545; /* Red color for logout button */
+            border-color: #dc3545; /* Red color for logout button */
+            color: #fff; /* White text color for logout button */
+        }
+        .btn-logout:hover {
+            background-color: #c82333; /* Darker red color on hover */
+            border-color: #bd2130; /* Darker red color on hover */
+        }
+    </style>
 </head>
 <body>
-    <h1 class="mt-5">Chirp Chirp! Welcome to Chirpy!</h1>
-
-    <p>Welcome to the main page. Click below to see the list of users.</p>
-
-    <!-- Button for navigating to the list users page -->
-    <p>
-        <a href="/main/feed/"><button>Feed</button></a>
-        <a href="/main/post/"><button>Post</button></a>
-        <a href="/main/listusers/"><button>List Users</button></a>
-        <a href="/main/showcookies/"><button>Cookies</button></a>
-    </p>
+    <div class="container mt-5">
+        <h1>Welcome to Chirpy</h1>
+        <p>As an esteemed member of our community, you have access to various features. Navigate through them seamlessly:</p>
+        <div class="d-flex justify-content-center">
+            <a href="/main/feed/" class="btn btn-primary">Feed</a>
+            <a href="/main/post/" class="btn btn-primary">Post</a>
+            <a href="/main/listusers/" class="btn btn-primary">List Users</a>
+            <a href="/main/showcookies/" class="btn btn-primary">Cookies</a>
+        </div>
+        <div class="text-center mt-4">
+            <a href="/logout/" class="btn btn-logout">Logout</a>
+        </div>
+    </div>
 </body>
 </html>

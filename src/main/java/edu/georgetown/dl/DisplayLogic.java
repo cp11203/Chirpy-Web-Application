@@ -159,4 +159,17 @@ public class DisplayLogic {
         }
         return cookies;
     }
+    /**
+     * Deletes a cookie from the response by setting its expiration date to a past
+     * date. Helped by ChatGPT
+     * 
+     * @param exchange the HttpExchange object representing the current exchange
+     */
+    public void deleteCookie(HttpExchange exchange) {
+        try {
+            exchange.getResponseHeaders().add("Set-Cookie", "getCookies(exchange) =; Expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/");
+        } catch (Exception e) {
+            logger.warning("Error deleting cookie: " + e.getMessage());
+        }
+    }
 }
