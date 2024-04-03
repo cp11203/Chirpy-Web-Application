@@ -59,7 +59,7 @@ public class UserService {
             String pass = user.getString("password");
 
             if (pass.equals(password)) {
-                logger.info("succeasful login for " + username);
+                logger.info("successful login for " + username);
                 return true;
             } else {
                 logger.info("failed login for " + username + " due to incorrect password.");

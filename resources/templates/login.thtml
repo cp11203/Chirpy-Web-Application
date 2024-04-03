@@ -1,7 +1,12 @@
+<!DOCTYPE html>
 <head>
     <title>Login to Chirpy</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<html>
+<head>
+<title>Login to Chirpy</title>
 </head>
 <body>
     <div class="container">
@@ -28,3 +33,4 @@
         </form>
     </div>
 </body>
+</html>
