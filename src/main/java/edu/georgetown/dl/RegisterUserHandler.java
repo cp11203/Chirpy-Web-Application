@@ -45,6 +45,7 @@ public class RegisterUserHandler implements HttpHandler {
 
             } else {
                 // Passwords don't match
+                logger.info("Registration Error");
                 dataModel.put("Message", "Registration Failed.");
             }
         } else {

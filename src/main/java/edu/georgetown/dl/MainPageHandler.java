@@ -11,6 +11,7 @@ import com.sun.net.httpserver.HttpHandler;
 
 import edu.georgetown.bll.user.UserService;
 
+
 public class MainPageHandler implements HttpHandler {
 
     private Logger logger;
@@ -19,8 +20,7 @@ public class MainPageHandler implements HttpHandler {
 
     private final String MAIN_PAGE = "main.thtml";
 
-
-     public MainPageHandler(Logger log, DisplayLogic dl, UserService us) {
+    public MainPageHandler(Logger log, DisplayLogic dl, UserService us) {
         logger = log;
         displayLogic = dl;
         userService = us;
@@ -34,8 +34,18 @@ public class MainPageHandler implements HttpHandler {
         StringWriter sw = new StringWriter();
         // Initialize dataModel to hold any data to be used in the template
         Map<String, Object> dataModel = new HashMap<>();
-
-        
+        Map<String, String> dataFromWebForm = displayLogic.parseResponse(exchange);
+        // Code taken from chatGPT
+        // Check if logout button was clicked
+        if (dataFromWebForm.containsKey("logout")) {
+            // Delete the cookie
+            displayLogic.deleteCookie(exchange); // Change "user_id" to your cookie name
+            // Redirect to login page or any other desired page
+            exchange.getResponseHeaders().set("Location", "/login/"); // Redirect to login page
+            exchange.sendResponseHeaders(302, -1); // HTTP 302 Found response
+            exchange.close();
+            return;
+        }
 
         // Parse the main.thtml template with any required data and write to StringWriter
         displayLogic.parseTemplate(MAIN_PAGE, dataModel, sw);
