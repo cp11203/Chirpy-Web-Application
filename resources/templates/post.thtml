@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- This code has been written by chatGPT -->
 <html lang="en">
+<!-- This code has been written by chatGPT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
         }
         .container {
             background-color: #fff;
-            padding: 20px;
+            padding: 40px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 400px;
@@ -26,18 +26,23 @@
         }
         h1 {
             margin-top: 0;
+            margin-bottom: 20px;
+            color: #007bff;
         }
         label {
             font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
         }
         textarea, input[type="text"] {
-            width: 100%;
+            width: calc(100% - 20px);
             padding: 10px;
             margin-top: 5px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
+            font-size: 16px;
         }
         button {
             padding: 10px 20px;
@@ -47,6 +52,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            font-size: 16px;
         }
         button:hover {
             background-color: #0056b3;
@@ -56,34 +62,74 @@
             font-size: 14px;
             color: #007bff;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         .return-link:hover {
+            color: #0056b3;
             text-decoration: underline;
+        }
+        #successMessage {
+            color: green;
+            margin-top: 15px;
+            display: none;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Create a New Post</h1>
-        <form action="main/post" method="post">
+        <form action="main/post" method="post" onsubmit="return validateForm()">
             <div>
                 <label for="content">Content:</label>
-                <textarea id="content" name="content" rows="4" cols="50" required></textarea>
+                <textarea id="content" name="content" rows="4" required></textarea>
+                <span id="content-error" class="error-message"></span>
             </div>
             <div>
                 <label for="hashtag">Hashtag:</label>
                 <input type="text" id="hashtag" name="hashtag" required>
+                <span id="hashtag-error" class="error-message"></span>
             </div>
             <button type="submit">Submit</button>
+            <p id="successMessage">Post added successfully!</p>
         </form>
-        <p id="successMessage" style="display:none; color: green;">Post added successfully!</p>
         <a href="/main/" class="return-link">Return to Main Page</a>
     </div>
     <script>
-        // JavaScript to display success message after form submission
-        document.querySelector('form').addEventListener('submit', function() {
-            document.getElementById('successMessage').style.display = 'block';
-        });
+        function validateForm() {
+            var content = document.getElementById('content').value;
+            var hashtag = document.getElementById('hashtag').value;
+            var contentError = document.getElementById('content-error');
+            var hashtagError = document.getElementById('hashtag-error');
+            var isValid = true;
+
+            contentError.textContent = '';
+            hashtagError.textContent = '';
+
+            if (content.length === 0) {
+                contentError.textContent = 'Content is required.';
+                isValid = false;
+            } else if (content.length > 240) {
+                contentError.textContent = 'Content should not exceed 240 characters.';
+                isValid = false;
+            }
+
+            if (hashtag.length === 0) {
+                hashtagError.textContent = 'Hashtag is required.';
+                isValid = false;
+            }
+
+            // Display success message only if all prerequisites are met
+            if (isValid) {
+                document.getElementById('successMessage').style.display = 'block';
+            }
+
+            return isValid;
+        }
     </script>
 </body>
 </html>
