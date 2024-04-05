@@ -1,63 +1,21 @@
 <!DOCTYPE html>
-<!-- This code has been written by chatGPT -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chirpy - Cookies</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f8fa;
-            color: #1a1a1b;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            color: #1da1f2;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        li {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-        li strong {
-            font-weight: bold;
-            color: #1da1f2;
-        }
-    </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Cookies</h1>
+    <div class="container mt-5">
+        <h1 class="text-primary">Cookies</h1>
 
-        <p>
+        <p class="text-center">
             This page demonstrates the readings of all of the cookies.
         </p>
 
         <div>
-            <h2>Cookie names</h2>
+            <h2 class="text-primary">Cookie names</h2>
             <ul>
                 <#list cookies?keys as cookieName>
                     <li><strong>${cookieName}:</strong> ${cookies[cookieName]}</li>
@@ -66,15 +24,15 @@
         </div>
 
         <div>
-            <h2>Cookie values</h2>
+            <h2 class="text-primary">Cookie values</h2>
             <ul>
                 <#list cookies?values as cookieValue>
                     <li>${cookieValue}</li>
                 </#list>
             </ul>
              <p>
-            Return to the <a href="/main/">main page</a>.
-        </p>
+                Return to the <a href="/main/" class="btn btn-primary">main page</a>.
+            </p>
         </div>
     </div>
 </body>
