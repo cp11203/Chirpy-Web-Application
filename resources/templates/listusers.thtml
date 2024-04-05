@@ -1,66 +1,29 @@
 <!DOCTYPE html>
-<!-- This code has been written by chatGPT -->
 <html>
 <head>
     <meta charset="UTF-8">
     <title>List of Users Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f8fa;
-            color: #1a1a1b;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #1da1f2;
-            margin-bottom: 20px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 16px;
-            margin-top: 20px;
-        }
-        a {
-            color: #1da1f2;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>List of Usernames registered on Chirpy</h1>
+    <div class="container mt-5">
+        <h1 class="text-primary">List of Usernames registered on Chirpy</h1>
 
         <ul>
             <#list users as user>
-                <li>${user.username}</li>
+                <li class="text-primary">${user.username}</li>
             </#list>
         </ul>
 
         <p>
-            Return to the <a href="/main/">main page</a>.
+            Return to the <a href="/main/" class="font-weight-bold text-primary">main page</a>.
         </p>
     </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
