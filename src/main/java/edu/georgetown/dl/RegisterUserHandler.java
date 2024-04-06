@@ -34,14 +34,14 @@ public class RegisterUserHandler implements HttpHandler {
             String username = dataFromWebForm.get("username");
             String password = dataFromWebForm.get("password");
             String confirmPassword = dataFromWebForm.get("confirm_password");
-
+            displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
             if (password.equals(confirmPassword)) {
                 userService.registerUser(username, password);
 
                 logger.info("Setting cookie for username: " + dataFromWebForm.get("username"));
                 displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
 
-                exchange.getResponseHeaders().set("Location", "/main/");
+                exchange.getResponseHeaders().set("Location", "/login/");
                 exchange.sendResponseHeaders(302, -1); 
                 exchange.getResponseBody().close(); 
                 return;
