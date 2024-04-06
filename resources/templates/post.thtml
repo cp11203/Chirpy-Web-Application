@@ -118,9 +118,7 @@
         if (content.length === 0) {
             contentError.textContent = 'Content is required.';
             isValid = false;
-        } else if (content.length < 128) {
-            contentError.textContent = 'Content should be at least 128 characters long.';
-            isValid = false;
+        } 
         } else if (content.length > 240) {
             contentError.textContent = 'Content should not exceed 240 characters.';
             isValid = false;
