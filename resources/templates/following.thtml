@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>List of Users Page</title>
+    <title>Following Feed</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -31,8 +31,14 @@
             padding: 0;
         }
         li {
-            font-size: 18px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        strong {
+            color: #1da1f2;
         }
         p {
             font-size: 16px;
@@ -50,13 +56,20 @@
 </head>
 <body>
     <div class="container">
-        <h1>List of Usernames registered on Chirpy</h1>
-
-        <ul>
-            <#list users as user>
-                <li>${user.username}</li>
-            </#list>
-        </ul>
+        <h1>Following Posts Feed</h1>
+        <#if posts?size gt 0>
+            <ul>
+                <#list posts as post> <!-- This line was missing -->
+                    <li>
+                        <strong>Username:</strong> ${post.username} <br>
+                        <strong>Content:</strong> ${post.content} <br>
+                        <strong>Hashtag:</strong> ${post.hashtag}
+                    </li>
+                </#list> <!-- Properly closed #list directive -->
+            </ul>
+        <#else>
+            <p>No new posts from following.</p>
+        </#if>
 
         <p>
             Return to the <a href="/main/">main page</a>.

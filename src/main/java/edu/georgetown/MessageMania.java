@@ -25,6 +25,10 @@ import edu.georgetown.dl.ListUsersHandler;
 import edu.georgetown.dl.MainPageHandler;
 import edu.georgetown.dl.PostHandler;
 import edu.georgetown.dl.FeedHandler;
+import edu.georgetown.dl.AccountHandler;
+import edu.georgetown.dl.FollowingHandler;
+import edu.georgetown.dl.AddFollowerHandler;
+import edu.georgetown.dl.SearchHandler;
 
 
 public class MessageMania {
@@ -85,11 +89,10 @@ public class MessageMania {
             server.createContext("/main/showcookies/", new ListCookiesHandler(logger, displayLogic));
             server.createContext("/main/post/", new PostHandler(logger, displayLogic, userService, postService));
             server.createContext("/main/feed/", new FeedHandler(logger, displayLogic, userService, postService));
-
-            // what other ones do we need
-            // so have main show buttons for feed and search 
-            // feed 
-            // search
+            server.createContext("/main/following/", new FollowingHandler(logger, displayLogic, userService, postService));
+            server.createContext("/main/search/", new SearchHandler(logger, displayLogic, userService, postService));
+            server.createContext("/main/addfollower/", new AddFollowerHandler(logger, displayLogic, userService));
+            server.createContext("/main/account/", new AccountHandler(logger, displayLogic, userService, postService));
 
             server.createContext("/", new DefaultPageHandler(logger, displayLogic));           
 

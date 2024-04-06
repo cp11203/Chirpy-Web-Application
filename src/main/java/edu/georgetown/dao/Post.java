@@ -7,15 +7,13 @@ public class Post implements Serializable {
     
     private String username;
     private String content;
-    private String hashtag;
-    private boolean isPublic;   
+    private String hashtag; 
 
 
     public Post(String username, String content, String hashtag) {
         this.username = username;
         this.content = content;
         this.hashtag = hashtag;
-        this.isPublic = true; // Default to true, can be changed later   
     }
 
     /**
@@ -42,13 +40,6 @@ public class Post implements Serializable {
         return this.hashtag;
     }
 
-    /**
-     * Checks if the post is public.
-     * @return true if the post is public
-     */
-    public boolean getIsPublic() {
-        return this.isPublic;
-    }
 
     
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post</title>
+    <title>Add Follower</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,7 +30,7 @@
         label {
             font-weight: bold;
         }
-        textarea, input[type="text"] {
+        input[type="text"] {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -64,26 +64,23 @@
 </head>
 <body>
     <div class="container">
-        <h1>Create a New Post</h1>
-        <form action="main/post" method="post">
+        <h1>Add Follower</h1>
+        <form action="/main/addfollower/" method="post">
             <div>
-                <label for="content">Content:</label>
-                <textarea id="content" name="content" rows="4" cols="50" required></textarea>
+                <label for="userToFollow">Username to Follow:</label>
+                <input type="text" id="userToFollow" name="userToFollow" required>
             </div>
-            <div>
-                <label for="hashtag">Hashtag:</label>
-                <input type="text" id="hashtag" name="hashtag" required>
-            </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Add Follower</button>
         </form>
-        <p id="successMessage" style="display:none; color: green;">Post added successfully!</p>
+        
+        <#if successMessage??>
+            <p style="color: green;">${successMessage}</p>
+        </#if>
+        <#if errorMessage??>
+            <p style="color: red;">${errorMessage}</p>
+        </#if>
+
         <a href="/main/" class="return-link">Return to Main Page</a>
     </div>
-    <script>
-        // JavaScript to display success message after form submission
-        document.querySelector('form').addEventListener('submit', function() {
-            document.getElementById('successMessage').style.display = 'block';
-        });
-    </script>
 </body>
 </html>

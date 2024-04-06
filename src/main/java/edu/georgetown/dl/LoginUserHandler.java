@@ -59,11 +59,6 @@ public class LoginUserHandler implements HttpHandler {
 
         exchange.getResponseHeaders().set("Content-Type", "text/html");
 
-        // if (dataFromWebForm.containsKey("username")) {
-        //     logger.info("Setting cookie for username: " + dataFromWebForm.get("username"));
-        //     displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
-        // }
-
         exchange.sendResponseHeaders(200, sw.getBuffer().length());
         
         OutputStream os = exchange.getResponseBody();

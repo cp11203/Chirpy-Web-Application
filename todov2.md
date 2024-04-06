@@ -53,3 +53,27 @@ posts need to have
 // so this will be an array of users in each user document - 
 
 // bascially - if the user is private, the user we are fetching posts for has to be in the contact list 
+
+
+
+we need to add search and add contacts
+
+if a post is set to private when crteated, then it is only shown to that users contacts
+
+i do now want to have profiles be puvblic private, but actuall posts
+
+apparaneltey chirps need to be at least 128 characters 
+
+if we do public or pirvate profiles, set all posts posted by that user , so when uodating, need to 
+
+
+
+// to do friday before submission
+
+post between 128 and 240 
+
+
+private and public 
+
+so a user can add a follower, 
+

@@ -14,15 +14,15 @@ import edu.georgetown.bll.user.PostService;
 import edu.georgetown.bll.user.UserService;
 import edu.georgetown.dao.Post; 
 
-public class FeedHandler implements HttpHandler {
+public class FollowingHandler implements HttpHandler {
 
-    final String FEED_PAGE = "feed.thtml";
+    final String FOLLOWING_PAGE = "following.thtml";
     private Logger logger;
     private DisplayLogic displayLogic;
     private UserService userService;
     private PostService postService;
 
-    public FeedHandler(Logger log, DisplayLogic dl, UserService us, PostService ps) {
+    public FollowingHandler(Logger log, DisplayLogic dl, UserService us, PostService ps) {
         logger = log;
         displayLogic = dl;
         userService = us;
@@ -32,7 +32,7 @@ public class FeedHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         
-        logger.info("feed handler called");
+        logger.info("following handler called");
 
         Map<String, Object> dataModel = new HashMap<String,Object>();
 
@@ -41,8 +41,12 @@ public class FeedHandler implements HttpHandler {
 
        
         try {
-            // like this 
-            postsVector.addAll(postService.fetchPosts()); // Ensure fetchPosts() returns a Collection of Post objects
+
+            Map<String, String> cookies = displayLogic.getCookies(exchange);
+
+            String username = cookies.getOrDefault("username", "Guest");
+
+            postsVector.addAll(postService.fetchFollowingPosts(username));
 
             int vectorSize = postsVector.size();
             
@@ -53,13 +57,13 @@ public class FeedHandler implements HttpHandler {
 
             logger.info("Posts successfully added to data model");
         } catch (Exception e) {
-            logger.warning("Failed to fetch users: " + e.getMessage());
+            logger.warning("Failed to fetch posts: " + e.getMessage());
         }
         
 
         StringWriter sw = new StringWriter();
 
-        displayLogic.parseTemplate(FEED_PAGE, dataModel, sw);
+        displayLogic.parseTemplate(FOLLOWING_PAGE, dataModel, sw);
 
         exchange.getResponseHeaders().set("Content-Type", "text/html");
         exchange.sendResponseHeaders(200, sw.getBuffer().length());
