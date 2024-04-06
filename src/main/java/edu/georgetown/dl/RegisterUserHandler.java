@@ -74,7 +74,7 @@ if (dataFromWebForm.containsKey("username") && dataFromWebForm.containsKey("pass
 
 // Render the registration form page again with error/success messages
 StringWriter sw = new StringWriter();
-displayLogic.parseTemplate("registrationFormTemplateHere.thtml", dataModel, sw);
+displayLogic.parseTemplate(REGISTER_PAGE, dataModel, sw);
 exchange.getResponseHeaders().set("Content-Type", "text/html");
 exchange.sendResponseHeaders(200, sw.getBuffer().length());
 OutputStream os = exchange.getResponseBody();

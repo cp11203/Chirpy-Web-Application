@@ -93,7 +93,7 @@ PostService class functions
 
 
 ## Testing
-    - 
+    - used JUnit and run mvm test in terminal to instantiate 
 
 ## Build Tool
     - in order to implement the MongoDB Java Driver, we used Maven build tool
