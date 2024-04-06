@@ -100,36 +100,39 @@
         <a href="/main/" class="return-link">Return to Main Page</a>
     </div>
     <script>
-        function validateForm() {
-            var content = document.getElementById('content').value;
-            var hashtag = document.getElementById('hashtag').value;
-            var contentError = document.getElementById('content-error');
-            var hashtagError = document.getElementById('hashtag-error');
-            var isValid = true;
+    function validateForm() {
+        var content = document.getElementById('content').value;
+        var hashtag = document.getElementById('hashtag').value;
+        var contentError = document.getElementById('content-error');
+        var hashtagError = document.getElementById('hashtag-error');
+        var isValid = true;
 
-            contentError.textContent = '';
-            hashtagError.textContent = '';
+        contentError.textContent = '';
+        hashtagError.textContent = '';
 
-            if (content.length === 0) {
-                contentError.textContent = 'Content is required.';
-                isValid = false;
-            } else if (content.length > 240) {
-                contentError.textContent = 'Content should not exceed 240 characters.';
-                isValid = false;
-            }
-
-            if (hashtag.length === 0) {
-                hashtagError.textContent = 'Hashtag is required.';
-                isValid = false;
-            }
-
-            // Display success message only if all prerequisites are met
-            if (isValid) {
-                document.getElementById('successMessage').style.display = 'block';
-            }
-
-            return isValid;
+        if (content.length === 0) {
+            contentError.textContent = 'Content is required.';
+            isValid = false;
+        } else if (content.length < 128) {
+            contentError.textContent = 'Content should be at least 128 characters long.';
+            isValid = false;
+        } else if (content.length > 240) {
+            contentError.textContent = 'Content should not exceed 240 characters.';
+            isValid = false;
         }
-    </script>
+
+        if (hashtag.length === 0) {
+            hashtagError.textContent = 'Hashtag is required.';
+            isValid = false;
+        }
+
+        // Display success message only if all prerequisites are met
+        if (isValid) {
+            document.getElementById('successMessage').style.display = 'block';
+        }
+
+        return isValid;
+    }
+</script>
 </body>
 </html>

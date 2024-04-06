@@ -37,20 +37,23 @@ public class UserService {
     }
 
 
-    public void registerUser(String username, String password) {
+    public boolean registerUser(String username, String password) {
         logger.info("Attempting to register user: " + username);
+    
         try {
             // Create a new user document with isPublic defaulting to true and an empty followers list
             Document newUser = new Document("username", username)
-                                    .append("password", password)
-                                    .append("isPublic", true) // Defaults to public
-                                    .append("following", new Vector<String>()); // Initializes an empty list of followers
+                    .append("password", password)
+                    .append("isPublic", true) // Defaults to public
+                    .append("following", new Vector<String>()); // Initializes an empty list of followers
     
             usersCollection.insertOne(newUser);
             logger.info("User registered successfully: " + username);
+            return true; // Return true if user is successfully registered
         } catch (Exception e) {
             logger.severe("Failed to register user " + username + ": " + e.getMessage());
             // Handle the exception as appropriate for your application
+            return false; // Return false if registration fails
         }
     }
     
@@ -120,6 +123,7 @@ public class UserService {
     }
     
 
+    // 
     public void switchToPrivate(String username) {
         
         logger.info("Switching user to private: " + username);
