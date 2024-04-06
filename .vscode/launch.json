@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MessageMania",
+            "request": "launch",
+            "mainClass": "edu.georgetown.MessageMania",
+            "projectName": "chirpy"
+        },
+        {
+            "type": "java",
             "name": "Chirpy",
             "request": "launch",
             "mainClass": "edu.georgetown.Chirpy",

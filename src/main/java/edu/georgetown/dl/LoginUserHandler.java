@@ -31,23 +31,26 @@ public class LoginUserHandler implements HttpHandler {
         logger.info("LoginUserHandler called");
 
         Map<String, Object> dataModel = new HashMap<String,Object>();
-        Map<String, String> dataFromWebForm = displayLogic.parseResponse(exchange);
+        
+        Map<String, String> dataFromWebForm = displayLogic.parseResponse(exchange); // go back over how this works 
 
 
         if (dataFromWebForm.containsKey("username") && dataFromWebForm.containsKey("password")) {
             String username = dataFromWebForm.get("username");
             String password = dataFromWebForm.get("password");
 
+            logger.info("Setting cookie for username: " + dataFromWebForm.get("username"));
+            displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
 
             boolean loginSuccess = userService.loginUser(username, password);
             
             if (loginSuccess) {
                 exchange.getResponseHeaders().set("Location", "/main/");
-                exchange.sendResponseHeaders(302, -1);
-                exchange.getResponseBody().close();
+                exchange.sendResponseHeaders(302, -1); 
+                exchange.getResponseBody().close(); 
                 return;
             } else {
-                dataModel.put("error", "Invalid username or password");
+                dataModel.put("Result", "Invalid username or password");
             }
         } 
         StringWriter sw = new StringWriter();
@@ -55,10 +58,6 @@ public class LoginUserHandler implements HttpHandler {
         displayLogic.parseTemplate(LOGIN_PAGE, dataModel, sw);
 
         exchange.getResponseHeaders().set("Content-Type", "text/html");
-
-        if (dataFromWebForm.containsKey("username")) {
-            displayLogic.addCookie(exchange, "username", dataFromWebForm.get("username"));
-        }
 
         exchange.sendResponseHeaders(200, sw.getBuffer().length());
         
