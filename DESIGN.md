@@ -91,6 +91,14 @@ PostService class functions
     - when user either registers or logs in, we call displayLogic.addCookie to add the username as a cookie, this is the only cookie we store
     - when user logs out, we call displayLogic.deleteCookie in order to remove this cooki
 
+
+## Testing
+    - 
+
+## Build Tool
+    - in order to implement the MongoDB Java Driver, we used Maven build tool
+    - in pom.xml file- we include the mongo driver, and also Maven has JUnit built in
+
 ## Storage (extra functionality)
 
 - we are using a hosted MongoDB atlas instance to store data
