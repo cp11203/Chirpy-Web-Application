@@ -83,6 +83,12 @@
 <body>
     <div class="container">
         <h1>Create a New Post</h1>
+        <#if error??>
+            <p class="error-message">${error}</p>
+        </#if>
+        <#if postSuccess??>
+            <p id="successMessage">${postSuccess}</p>
+        </#if>
         <form action="main/post" method="post" onsubmit="return validateForm()">
             <div>
                 <label for="content">Content:</label>
@@ -95,7 +101,6 @@
                 <span id="hashtag-error" class="error-message"></span>
             </div>
             <button type="submit">Submit</button>
-            <p id="successMessage">Post added successfully!</p>
         </form>
         <a href="/main/" class="return-link">Return to Main Page</a>
     </div>

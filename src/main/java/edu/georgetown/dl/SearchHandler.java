@@ -32,9 +32,9 @@ public class SearchHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         
-        logger.info("search handler called");
+        logger.info("Search handler called");
 
-        Map<String, Object> dataModel = new HashMap<String,Object>();
+        Map<String, Object> dataModel = new HashMap<>();
 
         Vector<Post> postsVector = new Vector<>();
  
@@ -44,26 +44,41 @@ public class SearchHandler implements HttpHandler {
     
             Map<String, String> cookies = displayLogic.getCookies(exchange);
 
-            String current_username = cookies.getOrDefault("username", "Guest");
+            String currentUsername = cookies.getOrDefault("username", "Guest");
     
-            // Now, depending on form data, decide which PostService method to call.
-            if (formData.containsKey("username")) {
-                String username = formData.get("username");
-                postsVector.addAll(postService.fetchPostsByUsername(current_username, username));
-            } else if (formData.containsKey("hashtag")) {
-                String hashtag = formData.get("hashtag");
-                postsVector.addAll(postService.fetchPostsByHashtag(current_username, hashtag));
+            try {
+                // Now, depending on form data, decide which PostService method to call.
+                if (formData.containsKey("username")) {
+                    String username = formData.get("username");
+                    try {
+                        postsVector.addAll(postService.fetchPostsByUsername(currentUsername, username));
+                        dataModel.put("success", "Posts fetched successfully.");
+                    } catch (Exception e) {
+                        dataModel.put("error", e.getMessage());
+                    }
+                } else if (formData.containsKey("hashtag")) {
+                    String hashtag = formData.get("hashtag");
+                    try {
+                        postsVector.addAll(postService.fetchPostsByHashtag(currentUsername, hashtag));
+                        dataModel.put("success", "Posts fetched successfully.");
+                    } catch (Exception e) {
+                        dataModel.put("error", e.getMessage());
+                    }
+                }
+            } catch (Exception e) {
+                logger.severe("Error fetching posts: " + e.getMessage());
+                dataModel.put("error", "Failed to fetch posts.");
             }
-    
+            
+            // Add postsVector to the data model if there are any posts to display
 
+               
+            
         }
-    
-           
+
         dataModel.put("posts", postsVector);
-        
 
         StringWriter sw = new StringWriter();
-
         displayLogic.parseTemplate(SEARCH_PAGE, dataModel, sw);
 
         exchange.getResponseHeaders().set("Content-Type", "text/html");
@@ -74,3 +89,4 @@ public class SearchHandler implements HttpHandler {
         os.close();
     }
 }
+

@@ -34,33 +34,32 @@ public class PostHandler implements HttpHandler {
 
         Map<String, Object> dataModel = new HashMap<String,Object>();
 
-        
-        if ("POST".equals(exchange.getRequestMethod())) {
-            // Parse the form data
-            Map<String, String> postData = displayLogic.parseResponse(exchange);
+    if ("POST".equals(exchange.getRequestMethod())) {
+    // Parse the form data
+        Map<String, String> postData = displayLogic.parseResponse(exchange);
+        Map<String, String> cookies = displayLogic.getCookies(exchange);
+        String username = cookies.getOrDefault("username", "Guest");
 
-            Map<String, String> cookies = displayLogic.getCookies(exchange);
+    // Validate required fields are present
+        if (postData.containsKey("content") && postData.containsKey("hashtag")) {
+            String content = postData.get("content");
+            String hashtag = postData.get("hashtag");
 
-            String username = cookies.getOrDefault("username", "Guest");
-
-            // Validate required fields are present
-            if (postData.containsKey("content") && postData.containsKey("hashtag")) {
-               
-                String content = postData.get("content");
-                String hashtag = postData.get("hashtag");
-
-                // Use PostService to add the post
+        // Use PostService to add the post
+            try {
                 postService.addPost(username, content, hashtag);
                 logger.info("Post successfully added for username: " + username);
-
                 dataModel.put("postSuccess", "Post successfully added!");
-                // so SW code should still get ran
-            } else {
-                // Handle missing fields in the form
-                logger.warning("Missing fields in post form.");
-                dataModel.put("error", "Missing required fields in the post form.");
+            } catch (Exception e) {
+             logger.warning("Failed to add post for username: " + username);
+             dataModel.put("error", "An error occurred while adding the post.");
             }
-        } 
+        } else {
+        // Handle missing fields in the form
+        logger.warning("Missing fields in post form.");
+        dataModel.put("error", "Missing required fields in the post form.");
+        }
+}
 
         logger.info("does this code in post handler get ran???");
 

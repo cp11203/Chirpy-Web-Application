@@ -66,19 +66,28 @@
 <body>
     <div class="container">
         <h1>Register for a Message Mania Account</h1>
-
         <p>Welcome! Please enter your details below to register.</p>
-
         <form id="registration_form" method="post" action="/register/">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" id="password" placeholder="Password" required>
             <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
             <input type="submit" value="Register">
-            <div class="message" id="registration_message"></div>
+
+            <!-- Display success message -->
+            <#if dataModel?has_content && dataModel.success?has_content>
+            <div class="alert alert-success" role="alert">
+                ${dataModel.success}
+            </div>
+            </#if>
+
+            <!-- Display error message -->
+            <#if dataModel?has_content && dataModel.error?has_content>
+            <div class="alert alert-danger" role="alert">
+                ${dataModel.error}
+            </div>
+            </#if>
         </form>
-         <p>
-             <a href="/default/">Back</a>.
-        </p>
+         <p><a href="/default/">Back</a>.</p>
     </div>
 
     <script>

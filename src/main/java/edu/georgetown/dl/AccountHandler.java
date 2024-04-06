@@ -36,7 +36,6 @@ public class AccountHandler implements HttpHandler {
 
         
         if ("POST".equals(exchange.getRequestMethod())) {
-            // Assuming the action to make the account private is triggered via a POST request
             // Fetching the current user's username from cookies
             Map<String, String> cookies = displayLogic.getCookies(exchange);
             String username = cookies.get("username"); // Assuming "username" cookie stores the logged-in user's username
@@ -47,7 +46,6 @@ public class AccountHandler implements HttpHandler {
                 logger.info("Account successfully switched to private for username: " + username);
                 dataModel.put("accountActionSuccess", true);
 
-                // Indicate success in the dataModel, or redirect as appropriate
                 dataModel.put("accountActionSuccess", "Your account has been switched to private.");
             } else {
                 // Handle case where username is not found in cookies
