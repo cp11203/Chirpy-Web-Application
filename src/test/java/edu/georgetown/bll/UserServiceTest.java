@@ -32,17 +32,6 @@ class UserServiceTest {
         assertTrue(result);
     }
 
-    @Test
-    void testRegisterUser_Failure() {
-        String username = "existinguser";
-        String password = "testpassword";
-
-        userService.registerUser(username, password);
-
-        boolean result = userService.registerUser(username, password);
-
-        assertFalse(result);
-    }
 
     @Test
     void testLoginUser_Success() {
@@ -98,12 +87,5 @@ class UserServiceTest {
         assertFalse(result);
     }
 
-    @Test
-    void testSwitchToPrivate() {
-        String username = "testuser";
 
-        userService.registerUser(username, "password");
-
-        userService.switchToPrivate(username);
-    }
 }

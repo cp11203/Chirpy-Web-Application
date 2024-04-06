@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.georgetown.bll.UserServiceTest" time="2.755" tests="8" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.georgetown.bll.UserServiceTest" time="2.443" tests="7" errors="0" skipped="0" failures="1">
   <properties>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.specification.version" value="11"/>
@@ -14,7 +14,7 @@
     <property name="os.name" value="Linux"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/opt/java/11.0.14/lib"/>
-    <property name="sun.java.command" value="/workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/target/surefire/surefirebooter-20240406042746175_3.jar /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/target/surefire 2024-04-06T04-27-45_906-jvmRun1 surefire-20240406042746175_1tmp surefire_0-20240406042746175_2tmp"/>
+    <property name="sun.java.command" value="/workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/target/surefire/surefirebooter-20240406045351758_3.jar /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/target/surefire 2024-04-06T04-53-51_556-jvmRun1 surefire-20240406045351758_1tmp surefire_0-20240406045351758_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/target/test-classes:/workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/target/classes:/home/codespace/.m2/repository/org/mongodb/mongodb-driver-sync/4.11.1/mongodb-driver-sync-4.11.1.jar:/home/codespace/.m2/repository/org/mongodb/bson/4.11.1/bson-4.11.1.jar:/home/codespace/.m2/repository/org/mongodb/mongodb-driver-core/4.11.1/mongodb-driver-core-4.11.1.jar:/home/codespace/.m2/repository/org/mongodb/bson-record-codec/4.11.1/bson-record-codec-4.11.1.jar:/home/codespace/.m2/repository/org/freemarker/freemarker/2.3.32/freemarker-2.3.32.jar:/home/codespace/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.7.0/junit-jupiter-api-5.7.0.jar:/home/codespace/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/codespace/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/codespace/.m2/repository/org/junit/platform/junit-platform-commons/1.7.0/junit-platform-commons-1.7.0.jar:/home/codespace/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.7.0/junit-jupiter-engine-5.7.0.jar:/home/codespace/.m2/repository/org/junit/platform/junit-platform-engine/1.7.0/junit-platform-engine-1.7.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/target/surefire/surefirebooter-20240406042746175_3.jar"/>
+    <property name="surefire.real.class.path" value="/workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/target/surefire/surefirebooter-20240406045351758_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.14.1+1-LTS"/>
     <property name="user.name" value="codespace"/>
@@ -56,57 +56,57 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testGetUsers" classname="edu.georgetown.bll.UserServiceTest" time="0.406">
-    <system-err><![CDATA[Apr 06, 2024 4:27:50 AM edu.georgetown.bll.user.UserService <init>
+  <testcase name="testGetUsers" classname="edu.georgetown.bll.UserServiceTest" time="0.348">
+    <system-err><![CDATA[Apr 06, 2024 4:53:55 AM edu.georgetown.bll.user.UserService <init>
 INFO: UserService started
-Apr 06, 2024 4:27:50 AM edu.georgetown.bll.user.UserService <init>
+Apr 06, 2024 4:53:55 AM edu.georgetown.bll.user.UserService <init>
 INFO: conncected to mongodb
 ]]></system-err>
   </testcase>
-  <testcase name="testRegisterUser_Success" classname="edu.georgetown.bll.UserServiceTest" time="0.3">
-    <system-err><![CDATA[Apr 06, 2024 4:27:50 AM edu.georgetown.bll.user.UserService <init>
+  <testcase name="testRegisterUser_Success" classname="edu.georgetown.bll.UserServiceTest" time="0.301">
+    <system-err><![CDATA[Apr 06, 2024 4:53:55 AM edu.georgetown.bll.user.UserService <init>
 INFO: UserService started
-Apr 06, 2024 4:27:50 AM edu.georgetown.bll.user.UserService <init>
+Apr 06, 2024 4:53:55 AM edu.georgetown.bll.user.UserService <init>
 INFO: conncected to mongodb
-Apr 06, 2024 4:27:50 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:55 AM edu.georgetown.bll.user.UserService registerUser
 INFO: Attempting to register user: testuser
-Apr 06, 2024 4:27:50 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService registerUser
 INFO: User registered successfully: testuser
 ]]></system-err>
   </testcase>
-  <testcase name="testAddFollower_Success" classname="edu.georgetown.bll.UserServiceTest" time="0.422">
-    <system-err><![CDATA[Apr 06, 2024 4:27:50 AM edu.georgetown.bll.user.UserService <init>
+  <testcase name="testAddFollower_Success" classname="edu.georgetown.bll.UserServiceTest" time="0.41">
+    <system-err><![CDATA[Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService <init>
 INFO: UserService started
-Apr 06, 2024 4:27:50 AM edu.georgetown.bll.user.UserService <init>
+Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService <init>
 INFO: conncected to mongodb
-Apr 06, 2024 4:27:50 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService registerUser
 INFO: Attempting to register user: testuser
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService registerUser
 INFO: User registered successfully: testuser
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService registerUser
 INFO: Attempting to register user: usertofollow
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService registerUser
 INFO: User registered successfully: usertofollow
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService addFollower
+Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService addFollower
 INFO: Attempting to add follower for user: testuser
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService addFollower
+Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService addFollower
 INFO: Added usertofollow to testuser's following list.
 ]]></system-err>
   </testcase>
-  <testcase name="testLoginUser_Success" classname="edu.georgetown.bll.UserServiceTest" time="0.379">
-    <system-err><![CDATA[Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService <init>
+  <testcase name="testLoginUser_Success" classname="edu.georgetown.bll.UserServiceTest" time="0.401">
+    <system-err><![CDATA[Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService <init>
 INFO: UserService started
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService <init>
+Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService <init>
 INFO: conncected to mongodb
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:56 AM edu.georgetown.bll.user.UserService registerUser
 INFO: Attempting to register user: testuser
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService registerUser
 INFO: User registered successfully: testuser
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService loginUser
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService loginUser
 INFO: successful login for testuser
 ]]></system-err>
   </testcase>
-  <testcase name="testRegisterUser_Failure" classname="edu.georgetown.bll.UserServiceTest" time="0.314">
+  <testcase name="testRegisterUser_Failure" classname="edu.georgetown.bll.UserServiceTest" time="0.308">
     <failure message="expected: &lt;false&gt; but was: &lt;true&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:40)
@@ -183,57 +183,42 @@ INFO: successful login for testuser
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 ]]></failure>
-    <system-err><![CDATA[Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService <init>
+    <system-err><![CDATA[Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService <init>
 INFO: UserService started
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService <init>
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService <init>
 INFO: conncected to mongodb
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService registerUser
 INFO: Attempting to register user: existinguser
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService registerUser
 INFO: User registered successfully: existinguser
-Apr 06, 2024 4:27:51 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService registerUser
 INFO: Attempting to register user: existinguser
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService registerUser
 INFO: User registered successfully: existinguser
 ]]></system-err>
   </testcase>
-  <testcase name="testLoginUser_Failure" classname="edu.georgetown.bll.UserServiceTest" time="0.3">
-    <system-err><![CDATA[Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService <init>
+  <testcase name="testLoginUser_Failure" classname="edu.georgetown.bll.UserServiceTest" time="0.284">
+    <system-err><![CDATA[Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService <init>
 INFO: UserService started
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService <init>
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService <init>
 INFO: conncected to mongodb
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService loginUser
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService loginUser
 INFO: failed login for testuser due to incorrect password.
 ]]></system-err>
   </testcase>
-  <testcase name="testAddFollower_UserNotFound" classname="edu.georgetown.bll.UserServiceTest" time="0.316">
-    <system-err><![CDATA[Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService <init>
+  <testcase name="testAddFollower_UserNotFound" classname="edu.georgetown.bll.UserServiceTest" time="0.353">
+    <system-err><![CDATA[Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService <init>
 INFO: UserService started
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService <init>
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService <init>
 INFO: conncected to mongodb
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService registerUser
 INFO: Attempting to register user: testuser
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService registerUser
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService registerUser
 INFO: User registered successfully: testuser
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService addFollower
+Apr 06, 2024 4:53:57 AM edu.georgetown.bll.user.UserService addFollower
 INFO: Attempting to add follower for user: testuser
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService addFollower
+Apr 06, 2024 4:53:58 AM edu.georgetown.bll.user.UserService addFollower
 INFO: User to follow not found: nonexistentuser
-]]></system-err>
-  </testcase>
-  <testcase name="testSwitchToPrivate" classname="edu.georgetown.bll.UserServiceTest" time="0.303">
-    <system-err><![CDATA[Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService <init>
-INFO: UserService started
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService <init>
-INFO: conncected to mongodb
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService registerUser
-INFO: Attempting to register user: testuser
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService registerUser
-INFO: User registered successfully: testuser
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService switchToPrivate
-INFO: Switching user to private: testuser
-Apr 06, 2024 4:27:52 AM edu.georgetown.bll.user.UserService switchToPrivate
-INFO: User successfully switched to private: testuser
 ]]></system-err>
   </testcase>
 </testsuite>

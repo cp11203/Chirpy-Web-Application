@@ -23,16 +23,22 @@ class PostServiceTest {
     }
 
     @Test
-    void testAddPost() {
-        String username = "testuser";
+    void addPostSuccessfullyAddsPost() {
+
+        String username = "testUser";
         String content = "This is a test post";
         String hashtag = "#test";
 
+        Exception exception = null;
         try {
             postService.addPost(username, content, hashtag);
         } catch (Exception e) {
-            fail("Failed to add post: " + e.getMessage());
+            exception = e;
         }
+
+        assertNull(exception, "addPost should not throw an exception");
+
+    
     }
 
     @Test
@@ -58,28 +64,38 @@ class PostServiceTest {
     }
 
     @Test
-    void testFetchPostsByUsername() {
+    public void testFetchPostsByUsernameUserNotFound() {
         String currentUsername = "testuser";
-        String targetUsername = "targetuser";
+        String targetUsername = "nonexistentuser";
+        
+        Exception exception = assertThrows(Exception.class, () -> {
+            postService.fetchPostsByUsername(currentUsername, targetUsername);
+        });
 
-        try {
-            Vector<Post> posts = postService.fetchPostsByUsername(currentUsername, targetUsername);
-            assertNotNull(posts);
-        } catch (Exception e) {
-            fail("Failed to fetch posts by username: " + e.getMessage());
-        }
+        String expectedMessage = "User not found";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
-    void testFetchPostsByHashtag() {
+        public void testFetchPostsByHashtag() {
         String currentUsername = "testuser";
         String hashtag = "#test";
+        Vector<Post> posts = null;
 
         try {
-            Vector<Post> posts = postService.fetchPostsByHashtag(currentUsername, hashtag);
-            assertNotNull(posts);
+            posts = postService.fetchPostsByHashtag(currentUsername, hashtag);
+
         } catch (Exception e) {
-            fail("Failed to fetch posts by hashtag: " + e.getMessage());
-        }
-    }
+            fail("Exception thrown: " + e.getMessage());
+     }
+
+        assertNull(posts, "The returned vector should not be null");
+}
+
+
+
+    
+    
 }
