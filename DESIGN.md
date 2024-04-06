@@ -48,17 +48,19 @@ this version of MessageMania has the following user functionalities:
     - use MongoDB java driver functions .insert and .find to add and fetch user and post objects to and from database
 
 UserService class functions
-- registerUser - takes in a username and password, and creates a User object stored as a document in users collection
+- registerUser - takes in a username and password, and creates a User object stored as a document in users collection, return true if success, false otherwise, throws expetion
 - loginUser- takes in a username and passowrd strings, and checks these against MongoDB collection, if valid, returns true, else, returns false
 - getUsers - function that returns all user documents stored in mongodb, as a vector of User objects
-- addFollower - a function that takes in 2 strings: the logged in user as currentUsername, and the userToFollow, it adds the latter value to the current user's following list in MongoDB
+- addFollower - a function that takes in 2 strings: the logged in user as currentUsername, and the userToFollow, it adds the latter value to the current user's following list in MongoDB, if success, returns, true, otherwise false
+- switchToPrivate- fucntion that sets users profile to private, takes in string which is current username
 
 PostService class functions
-- addPost - takes in username, content, and hashtag strings, inserts this post document to MongoDB posts collection - NEED TO BE ABLE TO SET POST TO PRIVATE
-- fetchPosts - fetches all posts in posts collection, returns as vector of posts, this is used to render posts in the global feed
-- fetchFollowingPosts - fetches only posts that the logged-in user follows, this is used to render posts in the following feed
-- fetchPostsByUsername - fecthes all posts with username == to inputted username, returns vector of Post objects
--fetchPostsByHashTag - fecthes all posts with hashtag == to inputted hahstag, returns vector of Post objects
+- addPost - takes in username, content, and hashtag strings, inserts this post document to MongoDB posts collection, throws exception
+- fetchPosts - fetches all posts in posts collection, returns as vector of posts, this is used to render posts in the global feed, throws exception
+- fetchFollowingPosts - fetches only posts that the logged-in user follows, this is used to render posts in the following feed, throws exception
+- fetchPostsByUsername - fecthes all posts with username == to inputted username, returns vector of Post objects, throws exception
+-fetchPostsByHashTag - fecthes all posts with hashtag == to inputted hahstag, returns vector of Post objects, throws exception
+    - in each of these search functions, if the user who posted post is private, we only return the post if the current user follows this user
 
 ## Display Logic Classes / FrontEnd templates
 # The handler functions that are resonsible for passing data to htmtl to render on screen
@@ -66,14 +68,16 @@ PostService class functions
 
 - in resources/templates , we have .thmtl files, in which we use basic css to make them look pretty
     - default.thmtl - this is the page rendered when just url is entered
-    - listusers.thtml - should we keep this??
+    - listusers.thtml
     - login.thtml
     - register.thtml
     - mainpage.thtml -- this is the main page of the application, shown only after succesful user login or registration
-    - post.thtml
-    - feed.thtml
-    - search.thtml - NEED TO ADD THIS
-    - addcontacts.thtml - NEED TO ADD THIS 
+    - post.thtml - form inputs to post a post
+    - feed.thtml - shows global feed of all posts
+    - following - shows feed of post only posted by user you follow
+    - search.thtml - allows users to search by username or hashtag
+    - account - button that allows users to switch account to private
+    - addfollowers- form that allows user to input username to add to following list
 - handlers - implemenation of HTTPHandler interface, to handle http requests to different url paths
     - DefaultPageHandler 
     - ListUsersHandler
@@ -82,8 +86,10 @@ PostService class functions
     - MainPageHandler
     - PostHandler
     - FeedHandler
-    - SearchHandler - NEED TO ADD THIS
-    - AddContactsHandler - NEED TO ADD THIS
+    - FollowingHandler
+    - SearchHandler
+    - AddContactsHandler 
+    - Accounthandler
 - DisplayLogic.java file - we do not need to change this, but it gives us code to render dynamic html pages
 
 
@@ -93,7 +99,21 @@ PostService class functions
 
 
 ## Testing
-    - 
+    - used JUnit and run mvm test in terminal to instantiate test classes for UserService and PostService
+    - kind of hard to implement testing using hosted backend, but tried to make sure the correct values are beign returned for each function, whether in a successful or error context
+    - PostServiceTest
+        - addPostSuccessfullyAddsPost - makes sure addPost does not throw
+        - testFetchPosts - ensures posts in returned vector
+        - testFetchFollowingPosts - ensures posts in returned vector
+        - testFetchPostsByUsernameUserNotFound - makes sure search for fake user throws
+        - testFetchPostsByHashtag - makes sure search for fake hashtag returns empty vector
+    - UserServiceTest
+        - testRegisterUser_Success - makes sure true is returned when succesffuly registering
+        - testLoginUser_Success - makes sure login in works if right user and pass entred
+        - testLoginUser_Failure - makes sure log in with wrong credentials fails
+        - testGetUsers - ensrues a non-empty vector returned
+        - testAddFollower_Success  - ensures adding an exiestent user works
+        - testAddFollower_UserNotFound - make sure trying to add fake user does not work
 
 ## Build Tool
     - in order to implement the MongoDB Java Driver, we used Maven build tool

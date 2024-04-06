@@ -1,6 +1,9 @@
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/ListCookiesHandler.java
+/workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/FollowingHandler.java
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/LoginUserHandler.java
+/workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/AddFollowerHandler.java
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/DisplayLogic.java
+/workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/SearchHandler.java
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dao/User.java
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/bll/user/PostService.java
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/MessageMania.java
@@ -8,6 +11,7 @@
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/RegisterUserHandler.java
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/FeedHandler.java
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/ListUsersHandler.java
+/workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/AccountHandler.java
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/MainPageHandler.java
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dl/DefaultPageHandler.java
 /workspaces/24sp-2-chirpy2-cosc-2020-chirpy-group-4/src/main/java/edu/georgetown/dao/Post.java

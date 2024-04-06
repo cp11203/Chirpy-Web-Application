@@ -52,7 +52,7 @@ public class FollowingHandler implements HttpHandler {
             
             logger.info("Size of vector: " + vectorSize);   
 
-            // Then add this Vector of posts to the dataModel
+            // add this Vector of posts to the dataModel
             dataModel.put("posts", postsVector);
 
             logger.info("Posts successfully added to data model");

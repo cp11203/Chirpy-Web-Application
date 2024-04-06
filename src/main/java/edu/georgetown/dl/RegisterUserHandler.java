@@ -48,7 +48,6 @@ if (dataFromWebForm.containsKey("username") && dataFromWebForm.containsKey("pass
             // Setting a success message
             dataModel.put("success", "Registration successful. Please log in.");
 
-            // Optionally redirect to the login page or a success page
             exchange.getResponseHeaders().set("Location", "/login/");
             exchange.sendResponseHeaders(302, -1); 
             exchange.getResponseBody().close(); 
@@ -74,7 +73,7 @@ if (dataFromWebForm.containsKey("username") && dataFromWebForm.containsKey("pass
 
 // Render the registration form page again with error/success messages
 StringWriter sw = new StringWriter();
-displayLogic.parseTemplate("registrationFormTemplateHere.thtml", dataModel, sw);
+displayLogic.parseTemplate(REGISTER_PAGE, dataModel, sw);
 exchange.getResponseHeaders().set("Content-Type", "text/html");
 exchange.sendResponseHeaders(200, sw.getBuffer().length());
 OutputStream os = exchange.getResponseBody();

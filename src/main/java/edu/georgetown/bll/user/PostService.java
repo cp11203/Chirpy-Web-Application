@@ -28,7 +28,7 @@ public class PostService {
         logger = log;
         logger.info("PostService started");
 
- 
+            // connection to mongodb databse, called "message_mania", with m_posts and m_users collections
             MongoClient mongoClient = MongoClients.create("mongodb+srv://chirpy_user:advanced_pro@chirpyv1.libuseu.mongodb.net/?retryWrites=true&w=majority&appName=chirpyv1");
             MongoDatabase database = mongoClient.getDatabase("messsage_mania");
             postsCollection = database.getCollection("m_posts");
@@ -37,6 +37,7 @@ public class PostService {
        
     }
 
+    // function to add post, takes in username, content, and hashtag, content being > 128 charcters enforced with JS in post.thtml
     public void addPost(String username, String content, String hashtag) throws Exception {
         logger.info("Attempting to add post for user: " + username);
         try {
@@ -50,6 +51,7 @@ public class PostService {
         }
     }
 
+    // function that fetches all posts in m_posts collection, used in feed.hthml
     public Vector<Post> fetchPosts() throws Exception {
         Vector<Post> posts = new Vector<>();
         try {
@@ -68,6 +70,7 @@ public class PostService {
         return posts;
     }
 
+    // takes in the current user's username, returns posts that are in this user's following list
     public Vector<Post> fetchFollowingPosts(String currentUsername) throws Exception {
         Vector<Post> posts = new Vector<>();
         try {
@@ -96,6 +99,7 @@ public class PostService {
         return posts;
     }
 
+    // searches for posts that are posted by a specific username, if user is private, only returns if current user follows them
     public Vector<Post> fetchPostsByUsername(String currentUsername, String targetUsername) throws Exception {
         Vector<Post> posts = new Vector<>();
         try {
@@ -131,6 +135,7 @@ public class PostService {
         return posts;
     }
     
+    // searches for posts by hashtag, if post is posted by private user, only shows if current user follows them
     public Vector<Post> fetchPostsByHashtag(String currentUsername, String hashtag) throws Exception {
         Vector<Post> posts = new Vector<>();
         try {

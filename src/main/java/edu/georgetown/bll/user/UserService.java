@@ -37,6 +37,7 @@ public class UserService {
     }
 
 
+    // return true if successfuly registered, takes in string of username and password
     public boolean registerUser(String username, String password) {
         logger.info("Attempting to register user: " + username);
     
@@ -59,7 +60,7 @@ public class UserService {
     
     
 
-
+    // returns true if successfully logged in, takes in username and password
     public boolean loginUser(String username, String password) {
         
         Document user = usersCollection.find(Filters.eq("username", username)).first();
@@ -82,6 +83,7 @@ public class UserService {
     }
 
     /// this function is generated from chat gpt 3.5 provided by OpenAI
+    // it fetches all users in the m_users collection, returns vector of user objects
     public Vector<User> getUsers() {
         Vector<User> users = new Vector<>();
         try (MongoCursor<Document> cursor = usersCollection.find().iterator()) {
@@ -98,6 +100,8 @@ public class UserService {
         return users;
     }
 
+    // this function is generated from chat gpt 3.5 provided by OpenAI
+    // this function takes in the current username, and the username this user wants to follow, and adds the latter username to the current user's following list
     public boolean addFollower(String currentUsername, String userToFollow) {
         logger.info("Attempting to add follower for user: " + currentUsername);
         try {
@@ -123,7 +127,7 @@ public class UserService {
     }
     
 
-    // 
+    // this function allows users to switch their account to private
     public void switchToPrivate(String username) {
         
         logger.info("Switching user to private: " + username);
