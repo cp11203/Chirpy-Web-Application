@@ -41,8 +41,8 @@ public class FeedHandler implements HttpHandler {
 
        
         try {
-            // like this 
-            postsVector.addAll(postService.fetchPosts()); // Ensure fetchPosts() returns a Collection of Post objects
+       
+            postsVector.addAll(postService.fetchPosts()); 
 
             int vectorSize = postsVector.size();
             

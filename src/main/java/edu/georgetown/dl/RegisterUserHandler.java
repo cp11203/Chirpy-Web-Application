@@ -48,7 +48,6 @@ if (dataFromWebForm.containsKey("username") && dataFromWebForm.containsKey("pass
             // Setting a success message
             dataModel.put("success", "Registration successful. Please log in.");
 
-            // Optionally redirect to the login page or a success page
             exchange.getResponseHeaders().set("Location", "/login/");
             exchange.sendResponseHeaders(302, -1); 
             exchange.getResponseBody().close(); 

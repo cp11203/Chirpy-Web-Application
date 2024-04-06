@@ -1,13 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: edu.georgetown.bll.PostServiceTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.981 s <<< FAILURE! -- in edu.georgetown.bll.PostServiceTest
-edu.georgetown.bll.PostServiceTest.testFetchPostsByHashtag -- Time elapsed: 0.357 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.Exception to be thrown, but nothing was thrown.
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3007)
-	at edu.georgetown.bll.PostServiceTest.testFetchPostsByHashtag(PostServiceTest.java:81)
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 3.571 s <<< FAILURE! -- in edu.georgetown.bll.PostServiceTest
+edu.georgetown.bll.PostServiceTest.testFetchPostsByHashtag -- Time elapsed: 0.404 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The returned vector should not be null ==> expected: <null> but was: <[]>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:48)
+	at org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:37)
+	at org.junit.jupiter.api.Assertions.assertNull(Assertions.java:266)
+	at edu.georgetown.bll.PostServiceTest.testFetchPostsByHashtag(PostServiceTest.java:94)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

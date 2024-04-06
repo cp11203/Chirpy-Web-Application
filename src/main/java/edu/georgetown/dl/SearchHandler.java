@@ -47,7 +47,6 @@ public class SearchHandler implements HttpHandler {
             String currentUsername = cookies.getOrDefault("username", "Guest");
     
             try {
-                // Now, depending on form data, decide which PostService method to call.
                 if (formData.containsKey("username")) {
                     String username = formData.get("username");
                     try {
@@ -69,10 +68,7 @@ public class SearchHandler implements HttpHandler {
                 logger.severe("Error fetching posts: " + e.getMessage());
                 dataModel.put("error", "Failed to fetch posts.");
             }
-            
-            // Add postsVector to the data model if there are any posts to display
-
-               
+           
             
         }
 

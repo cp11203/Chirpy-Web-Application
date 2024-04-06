@@ -86,12 +86,13 @@ class PostServiceTest {
 
         try {
             posts = postService.fetchPostsByHashtag(currentUsername, hashtag);
+            assertTrue(posts.isEmpty(), "The returned vector should be empty");
 
         } catch (Exception e) {
             fail("Exception thrown: " + e.getMessage());
      }
 
-        assertNull(posts, "The returned vector should not be null");
+    
 }
 
 
